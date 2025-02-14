@@ -8,12 +8,19 @@
   ...
 }: let
   nvim = let
-    config = neovimUtils.makeNeovimConfig {
-      customRC = ''
-      	set runtimepath^=${config_path}
-	source ${config_path + "/init.lua"}
-      '';
-    };
+    config = let
+      extraPackags = with pkgs; [
+        cargo
+        opam
+        go
+      ];
+    in
+      neovimUtils.makeNeovimConfig {
+        customRC = ''
+          set runtimepath^=${config_path}
+          source ${config_path + "/init.lua"}
+        '';
+      };
   in
     wrapNeovimUnstable neovim-unwrapped config;
 in

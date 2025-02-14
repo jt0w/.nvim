@@ -1,6 +1,10 @@
 local servers = {
     lua_ls = true,
     rust_analyzer = true,
+    ocamllsp = true,
+    nil_ls = true,
+    zls = true,
+    gopls = true,
 }
 
 local lspconfig = require("lspconfig")
