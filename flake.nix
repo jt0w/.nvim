@@ -23,7 +23,7 @@
       in {
         devShells = {
           default = pkgs.mkShell {
-            buildInputs = with pkgs; [neovim alejandra];
+            buildInputs = with pkgs; [alejandra];
           };
         };
 
