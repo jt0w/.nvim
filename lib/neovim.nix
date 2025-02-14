@@ -5,6 +5,7 @@
   buildFHSEnv,
   writeShellScript,
   config_path,
+  pkgs,
   ...
 }: let
   nvim = let
