@@ -15,6 +15,7 @@
         cargo
         opam
         ocaml
+        ocamlPackages.ocamlformat
         go
       ];
     in
