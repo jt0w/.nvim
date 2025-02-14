@@ -6,6 +6,7 @@
   writeShellScript,
   config_path,
   pkgs,
+  lib,
   ...
 }: let
   nvim = let
@@ -13,14 +14,25 @@
       extraPackags = with pkgs; [
         cargo
         opam
+        ocaml
         go
       ];
     in
       neovimUtils.makeNeovimConfig {
+        inherit extraPackags;
+
         customRC = ''
           set runtimepath^=${config_path}
           source ${config_path + "/init.lua"}
         '';
+      }
+      // {
+        wrapperArgs = [
+                "--prefix"
+                "PATH"
+                ":"
+                "${lib.makeBinPath extraPackags}"
+            ];
       };
   in
     wrapNeovimUnstable neovim-unwrapped config;
