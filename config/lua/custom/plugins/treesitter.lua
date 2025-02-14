@@ -10,7 +10,10 @@ return {
             ensure_installed = "all",
             auto_install = true,
             highlight = { enable = true },
-            indent = { enable = true },
+            indent = {
+                enable = true,
+                disable = { "nix" },
+            },
         }
     end
 }
