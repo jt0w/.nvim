@@ -47,6 +47,8 @@ require("conform").setup {
     notify_on_error = false,
 }
 
+require("fidget").setup {}
+
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(_)
         local builtin = require "telescope.builtin"

@@ -23,17 +23,17 @@
         inherit extraPackags;
 
         customRC = ''
-          set runtimepath^=${config_path}
-          source ${config_path + "/init.lua"}
+            set runtimepath^=${config_path}
+            source ${config_path + "/init.lua"}
         '';
       }
       // {
         wrapperArgs = [
-                "--prefix"
-                "PATH"
-                ":"
-                "${lib.makeBinPath extraPackags}"
-            ];
+          "--prefix"
+          "PATH"
+          ":"
+          "${lib.makeBinPath extraPackags}"
+        ];
       };
   in
     wrapNeovimUnstable neovim-unwrapped config;
