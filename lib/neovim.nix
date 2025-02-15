@@ -17,9 +17,6 @@
         ocaml
         ocamlPackages.ocamlformat
         ocamlPackages.ocaml-lsp
-
-        cargo
-        rustc
         go
       ];
     in

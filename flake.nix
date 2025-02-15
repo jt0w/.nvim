@@ -3,13 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    fenix = {
-      url = "github:nix-community/fenix/monthly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs @ {flake-parts,fenix, ...}:
+  outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
 
@@ -30,15 +26,7 @@
         };
 
         packages = {
-          default = pkgs.callPackage ./lib/neovim.nix {inherit config_path;inherit fenix;};
-        };
-
-        _module.args.pkgs = import inputs.nixpkgs {
-            inherit system;
-            overlays = [
-                fenix.overlays.default
-            ];
-            config = { };
+          default = pkgs.callPackage ./lib/neovim.nix {inherit config_path;};
         };
       };
     };
