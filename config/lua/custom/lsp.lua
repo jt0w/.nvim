@@ -5,6 +5,10 @@ local servers = {
     nil_ls = true,
     zls = true,
     gopls = true,
+    c3_lsp = {
+        enable = true,
+        install = false,
+    }
 }
 
 local lspconfig = require("lspconfig")
@@ -18,14 +22,20 @@ if pcall(require, "cmp_nvim_lsp") then
 end
 
 for name, config in pairs(servers) do
-    if config == true then
+    if config == true or config.enable == true then
         config = {}
     end
     config = vim.tbl_deep_extend("force", {}, {
         capabilities = capabilities,
     }, config)
     lspconfig[name].setup(config)
+
+    if config.install ~= true then
+        goto continue
+    end
+
     table.insert(ensure_installed, name)
+    ::continue::
 end
 
 require("mason-lspconfig").setup({
@@ -34,12 +44,15 @@ require("mason-lspconfig").setup({
 })
 
 require("lazydev").setup {
-    library = {
-        "lazy.nvim"
-    },
+    enabled = true,
 }
 
-require("ocaml").setup {}
+require("ocaml").setup {
+    setup_conform = true,
+    setup_lspconfig = true,
+    install_mlx = false,
+    install_rapper = false,
+}
 require("conform").setup {
     format_after_save = {
         lsp_format = "first"
