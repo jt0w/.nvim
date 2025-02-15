@@ -17,6 +17,9 @@
         ocaml
         ocamlPackages.ocamlformat
         ocamlPackages.ocaml-lsp
+
+        cargo
+        rustc
         go
       ];
     in
@@ -24,8 +27,8 @@
         inherit extraPackags;
 
         customRC = ''
-            set runtimepath^=${config_path}
-            source ${config_path + "/init.lua"}
+          set runtimepath^=${config_path}
+          source ${config_path + "/init.lua"}
         '';
       }
       // {

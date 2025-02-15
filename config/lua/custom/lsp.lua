@@ -1,14 +1,15 @@
-local mason_servers = {
+local servers = {
     lua_ls = true,
     rust_analyzer = true,
     nil_ls = true,
     zls = true,
     gopls = true,
-}
 
-local extra_servers = {
-    c3_lsp = true,
+    c3_lsp = {
+        install = false,
+    },
     ocamllsp = {
+        install = false,
         cmd = { "ocamllsp" },
     },
 }
@@ -17,22 +18,16 @@ local lspconfig = require("lspconfig")
 require("mason").setup()
 local ensure_installed = {}
 
-local capabilities = nil
 
-if pcall(require, "cmp_nvim_lsp") then
-    capabilities = require("cmp_nvim_lsp").default_capabilities()
-end
-
-for name, config in pairs(mason_servers) do
-    if config == true then
+for name, config in pairs(servers) do
+    if config == true or config.enabled == true then
         config = {}
     end
-    config = vim.tbl_deep_extend("force", {}, {
-        capabilities = capabilities,
-    }, config)
+
+    config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
     lspconfig[name].setup(config)
 
-    if config.install then
+    if config.install == false then
         goto continue
     end
 
@@ -40,16 +35,6 @@ for name, config in pairs(mason_servers) do
     ::continue::
 end
 
-
-for name, config in pairs(extra_servers) do
-    if config == true then
-        config = {}
-    end
-    config = vim.tbl_deep_extend("force", {}, {
-        capabilities = capabilities,
-    }, config)
-    lspconfig[name].setup(config)
-end
 
 require("mason-lspconfig").setup({
     ensure_installed = ensure_installed,

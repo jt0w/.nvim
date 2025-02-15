@@ -35,11 +35,12 @@ o.completeopt = { "menu", "menuone", "noselect" }
 o.updatetime = 50
 o.belloff = "all"
 
-o.guicursor = ""
 o.list = true
 o.lcs = "eol:↲,tab:» ,trail:·"
 o.conceallevel = 2
 o.foldlevel = 999
+o.guicursor = ""
+o.cursorline = true
 
 o.virtualedit = "block"
 o.inccommand = "split"

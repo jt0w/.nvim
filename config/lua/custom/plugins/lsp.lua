@@ -16,6 +16,8 @@ return {
 
                 -- nvim api lsp
                 "folke/lazydev.nvim",
+
+                "saghen/blink.cmp"
             },
         }
     end,
