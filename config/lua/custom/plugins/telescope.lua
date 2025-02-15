@@ -1,5 +1,6 @@
 return {
     'telescope.nvim',
+    lazy = false,
     before = function()
         deps.add {
             source = "nvim-telescope/telescope.nvim",
