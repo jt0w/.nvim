@@ -1,5 +1,5 @@
 return {
-    "oil",
+    "oil.nvim",
     lazy = false,
     before = function()
         deps.add {
