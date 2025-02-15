@@ -16,6 +16,7 @@
         opam
         ocaml
         ocamlPackages.ocamlformat
+        ocamlPackages.ocaml-lsp
         go
       ];
     in
