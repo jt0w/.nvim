@@ -10,31 +10,38 @@ g.langmap = "äö"
 o.wrap = false
 o.number = true
 o.relativenumber = true
+
 o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
 o.expandtab = true
 o.smartindent = true
 o.breakindent = true
+
 o.swapfile = false
 o.backup = false
 o.undofile = true
+
 o.splitright = true
 o.splitbelow = true
+
 o.hlsearch = true
 o.incsearch = true
 o.termguicolors = true
+
 o.scrolloff = 15
 o.signcolumn = "yes"
 o.completeopt = { "menu", "menuone", "noselect" }
 o.updatetime = 50
 o.belloff = "all"
+
+o.guicursor = ""
 o.list = true
 o.lcs = "eol:↲,tab:» ,trail:·"
 o.conceallevel = 2
 o.foldlevel = 999
+
 o.virtualedit = "block"
-o.laststatus = 3
 o.inccommand = "split"
 o.background = "dark"
 o.clipboard = "unnamedplus"
