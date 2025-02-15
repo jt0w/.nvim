@@ -1,6 +1,5 @@
 local s = vim.keymap.set
 
-s("n", "<leader>e", "<cmd>Explore<cr>")
 s("n", "<esc>", "<cmd>noh<cr>")
 
 s("n", "<c-j>", "<c-w><c-j>")
