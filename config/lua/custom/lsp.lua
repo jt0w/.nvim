@@ -1,7 +1,6 @@
 local servers = {
     lua_ls = true,
     rust_analyzer = true,
-    ocamllsp = true,
     nil_ls = true,
     zls = true,
     gopls = true,
@@ -30,7 +29,7 @@ for name, config in pairs(servers) do
     }, config)
     lspconfig[name].setup(config)
 
-    if config.install ~= true then
+    if config.install == false then
         goto continue
     end
 
