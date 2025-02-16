@@ -42,19 +42,34 @@ require("el").setup {
                     return extensions.file_icon(_, buffer)
                 end
             ))
+
         table.insert(s, " ")
         table.insert(s, builtin.shortened_file)
         table.insert(s, " %m")
         table.insert(s, sections.split)
 
+        table.insert(s,
+            subscribe.buf_autocmd(
+                "custom_lsp_list",
+                "LspAttach",
+                function(_)
+                    local clients = vim.lsp.get_clients({ bufnr = 0 })
+                    local string = ""
+                    for _, client in ipairs(clients) do
+                        string = "[" .. string .. client.name .. "]"
+                    end
+                    return string
+                end))
+
+        table.insert(s, " ")
         table.insert(s, "[")
         table.insert(s, builtin.line_number)
         table.insert(s, " : ")
         table.insert(s, builtin.column_number)
         table.insert(s, "]")
 
+        table.insert(s, " ")
         table.insert(s, builtin.filetype)
-
         return s
     end,
 }

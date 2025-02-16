@@ -5,7 +5,7 @@ return {
             source = "tjdevries/express_line.nvim",
             depends = {
                 "nvim-lua/plenary.nvim",
-                "nvim-tree/nvim-web-devicons"
+                "nvim-tree/nvim-web-devicons",
             },
         }
     end,
