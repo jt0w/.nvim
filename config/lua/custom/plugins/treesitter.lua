@@ -6,16 +6,19 @@ return {
         deps.add { source = "nvim-treesitter/nvim-treesitter" }
     end,
     after = function()
-        require("nvim-treesitter.configs").setup {
-            ensure_installed = "all",
+        require("nvim-treesitter").setup {
+            ensure_install = { "stable" },
             auto_install = true,
-            highlight = { enable = true },
-            indent = {
-                enable = true,
-                disable = { "nix" },
-            },
         }
 
+        vim.api.nvim_create_autocmd('FileType', {
+            pattern = { '<filetype>' },
+            callback = function()
+                vim.treesitter.start()
+                vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
+        })
 
         vim.filetype.add({
             extension = {

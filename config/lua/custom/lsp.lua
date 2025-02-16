@@ -61,7 +61,9 @@ require("conform").setup {
 require("fidget").setup {}
 
 vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(_)
+    callback = function(client, bufnr)
+        vim.lsp.inlay_hint.enable(true)
+
         local builtin = require "telescope.builtin"
 
         vim.keymap.set("n", "gd", builtin.lsp_definitions)

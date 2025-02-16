@@ -18,6 +18,9 @@
         ocamlPackages.ocamlformat
         ocamlPackages.ocaml-lsp
         go
+        chafa
+        fortune-kind
+        luajitPackages.luarocks-nix
       ];
     in
       neovimUtils.makeNeovimConfig {
