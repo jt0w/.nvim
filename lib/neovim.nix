@@ -20,7 +20,6 @@
         go
         chafa
         fortune-kind
-        luajitPackages.luarocks-nix
       ];
     in
       neovimUtils.makeNeovimConfig {
