@@ -10,7 +10,7 @@ return {
         }
     end,
     keys = {
-        { "<leader>e", "<cmd>Oil --float<cr>", desc = "Open oil.nvim" },
+        { "<leader>e", "<cmd>Oil<cr>", desc = "Open oil.nvim" },
     },
     after = function()
         require("oil").setup({

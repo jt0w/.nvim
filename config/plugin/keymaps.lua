@@ -1,6 +1,7 @@
 local s = vim.keymap.set
 
 s("n", "<esc>", "<cmd>noh<cr>")
+s("n", "<leader>,", "<C-^>")
 
 s("n", "<c-j>", "<c-w><c-j>")
 s("n", "<c-k>", "<c-w><c-k>")
