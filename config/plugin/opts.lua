@@ -7,6 +7,8 @@ g.netrw_winsize = 25
 g.netrw_cursor = false
 g.langmap = "äö"
 
+g.c_syntax_for_h = true
+
 o.wrap = false
 o.number = true
 o.relativenumber = true
