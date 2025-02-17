@@ -4,6 +4,8 @@ local servers = {
     nil_ls = true,
     zls = true,
     gopls = true,
+    ols = true,
+    clangd = true,
 
     c3_lsp = {
         install = false,
@@ -17,7 +19,6 @@ local servers = {
 local lspconfig = require("lspconfig")
 require("mason").setup()
 local ensure_installed = {}
-
 
 for name, config in pairs(servers) do
     if config == true or config.enabled == true then
@@ -61,7 +62,7 @@ require("conform").setup {
 require("fidget").setup {}
 
 vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(client, bufnr)
+    callback = function(_)
         vim.lsp.inlay_hint.enable(true)
 
         local builtin = require "telescope.builtin"

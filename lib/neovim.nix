@@ -18,8 +18,7 @@
         ocamlPackages.ocamlformat
         ocamlPackages.ocaml-lsp
         go
-        chafa
-        fortune-kind
+        unzip
       ];
     in
       neovimUtils.makeNeovimConfig {
