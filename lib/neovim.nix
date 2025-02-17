@@ -27,6 +27,7 @@
 
         customRC = ''
           set runtimepath^=${config_path}
+          set runtimepath^=${config_path}/after
           source ${config_path + "/init.lua"}
         '';
       }
