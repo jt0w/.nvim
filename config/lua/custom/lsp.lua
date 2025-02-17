@@ -5,8 +5,10 @@ local servers = {
     zls = true,
     gopls = true,
     ols = true,
-    clangd = true,
 
+    ccls = {
+        install = false,
+    },
     c3_lsp = {
         install = false,
     },

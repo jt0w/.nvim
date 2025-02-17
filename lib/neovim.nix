@@ -13,6 +13,7 @@
     config = let
       extraPackags = with pkgs; [
         cargo
+        ccls
         opam
         ocaml
         ocamlPackages.ocamlformat
