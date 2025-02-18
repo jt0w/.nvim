@@ -1,10 +1,13 @@
 return {
-    "rose-pine",
+    "catppuccin",
     lazy = false,
     before = function()
-        deps.add({ source = "rose-pine/neovim", name = "rose-pine" })
+        deps.add({ source = "catppuccin/nvim", name = "catppuccin" })
     end,
     after = function()
-        vim.cmd.colorscheme "rose-pine"
+        require("catppuccin").setup {
+            flavour = "mocha",
+        }
+        vim.cmd.colorscheme "catppuccin"
     end
 }
