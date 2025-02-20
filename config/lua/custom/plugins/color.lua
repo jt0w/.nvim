@@ -1,13 +1,11 @@
 return {
-    "tokyonight",
+    "material.nvim",
     lazy = false,
     before = function()
-        deps.add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
+        deps.add({ source = "marko-cerovac/material.nvim" })
     end,
     after = function()
-        require("tokyonight").setup {
-            style = "night",
-        }
-        vim.cmd.colorscheme "tokyonight"
+        vim.g.material_style = "darker"
+        vim.cmd.colorscheme "material"
     end
 }
