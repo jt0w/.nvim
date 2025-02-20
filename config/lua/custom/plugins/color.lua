@@ -1,11 +1,10 @@
 return {
-    "material.nvim",
+    "gruvbox.nvim",
     lazy = false,
     before = function()
-        deps.add({ source = "marko-cerovac/material.nvim" })
+        deps.add({ source = "ellisonleao/gruvbox.nvim" })
     end,
     after = function()
-        vim.g.material_style = "darker"
-        vim.cmd.colorscheme "material"
+        vim.cmd.colorscheme "gruvbox"
     end
 }
