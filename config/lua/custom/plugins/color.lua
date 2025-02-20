@@ -1,13 +1,13 @@
 return {
-    "catppuccin",
+    "tokyonight",
     lazy = false,
     before = function()
-        deps.add({ source = "catppuccin/nvim", name = "catppuccin" })
+        deps.add({ source = "folke/tokyonight.nvim", name = "tokyonight" })
     end,
     after = function()
-        require("catppuccin").setup {
-            flavour = "mocha",
+        require("tokyonight").setup {
+            style = "night",
         }
-        vim.cmd.colorscheme "catppuccin"
+        vim.cmd.colorscheme "tokyonight"
     end
 }
