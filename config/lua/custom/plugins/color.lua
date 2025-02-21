@@ -1,13 +1,16 @@
 return {
-    "catppuccin",
+    "kanagawa.nvim",
     lazy = false,
     before = function()
-        deps.add({ source = "catppuccin/nvim", name = "catppuccin" })
+        deps.add({ source = "rebelot/kanagawa.nvim" })
     end,
     after = function()
-        require ("catppuccin").setup {
-            flavour = "latte"
+        require("kanagawa").setup {
+            theme = "dragon",
+            background = {
+                dark = "dragon",
+            }
         }
-        vim.cmd.colorscheme "catppuccin"
+        vim.cmd.colorscheme "kanagawa"
     end
 }

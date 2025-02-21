@@ -47,4 +47,5 @@ o.cursorline = true
 o.virtualedit = "block"
 o.inccommand = "split"
 o.background = "dark"
+
 o.clipboard = "unnamedplus"
