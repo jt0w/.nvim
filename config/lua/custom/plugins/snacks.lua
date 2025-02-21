@@ -24,9 +24,7 @@ return {
         })
 
 
-        Snacks.toggle.diagnostics():map("<leader>td")
         Snacks.toggle.dim():map("<leader>tD")
-        Snacks.toggle.inlay_hints():map("<leader>ti")
         Snacks.toggle.zoom():map("<leader>z")
         Snacks.toggle.option("wrap"):map("<leader>w")
     end

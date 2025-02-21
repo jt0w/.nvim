@@ -1,10 +1,10 @@
 return {
-    "gruvbox.nvim",
+    "catppuccin",
     lazy = false,
     before = function()
-        deps.add({ source = "ellisonleao/gruvbox.nvim" })
+        deps.add({ source = "catppuccin/nvim", name = "catppuccin" })
     end,
     after = function()
-        vim.cmd.colorscheme "gruvbox"
+        vim.cmd.colorscheme "catppuccin"
     end
 }
