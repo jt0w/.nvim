@@ -1,16 +1,14 @@
 return {
-    "kanagawa.nvim",
+    "cyberdream.nvim",
     lazy = false,
     before = function()
-        deps.add({ source = "rebelot/kanagawa.nvim" })
+        deps.add({ source = "scottmckendry/cyberdream.nvim" })
     end,
     after = function()
-        require("kanagawa").setup {
-            theme = "dragon",
-            background = {
-                dark = "dragon",
-            }
+        require("cyberdream").setup {
+            variant = "auto",
+            transparent = true,
         }
-        vim.cmd.colorscheme "kanagawa"
+        vim.cmd.colorscheme "cyberdream"
     end
 }
