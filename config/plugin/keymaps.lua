@@ -3,6 +3,9 @@ local s = vim.keymap.set
 s("n", "<esc>", "<cmd>noh<cr>")
 s("n", "<leader>,", "<C-^>")
 
+s("n", "<leader>n", "<cmd>tabnext<cr>")
+s("n", "<leader>p", "<cmd>tabprev<cr>")
+
 s("n", "<c-j>", "<c-w><c-j>")
 s("n", "<c-k>", "<c-w><c-k>")
 s("n", "<c-l>", "<c-w><c-l>")
