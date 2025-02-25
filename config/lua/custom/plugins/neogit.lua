@@ -1,20 +1,13 @@
 return {
-    "neogit",
-    before = function()
-        deps.add {
-            source = "NeogitOrg/neogit",
-            depends = {
-                "nvim-lua/plenary.nvim",  -- required
-                "sindrets/diffview.nvim", -- optional - Diff integration
-            },
-        }
-    end,
+    "NeogitOrg/neogit",
+    dependencies = {
+        "nvim-lua/plenary.nvim",  -- required
+        "sindrets/diffview.nvim", -- optional - Diff integration
+    },
     keys = {
         { "<leader>gs", "<cmd>Neogit<cr>", desc = "Open Neogit" }
     },
-    after = function()
-        require("neogit").setup({
-            kind = "floating"
-        })
-    end
+    opts = {
+        kind = "floating",
+    },
 }

@@ -1,14 +1,12 @@
 return {
-    "cyberdream.nvim",
-    lazy = false,
-    before = function()
-        deps.add({ source = "scottmckendry/cyberdream.nvim" })
-    end,
-    after = function()
-        require("cyberdream").setup {
-            variant = "auto",
-            transparent = true,
-        }
-        vim.cmd.colorscheme "cyberdream"
-    end
+	"scottmckendry/cyberdream.nvim",
+	lazy = false,
+	priority=1000,
+	config = function()
+		require ("cyberdream").setup {
+			variant = "auto",
+			transparent = true,
+		}
+		vim.cmd.colorscheme "cyberdream"
+	end
 }

@@ -1,6 +1,9 @@
 local g = vim.g
 local o = vim.opt
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 g.netrw_browser_split = 0
 g.netrw_banner = 0
 g.netrw_winsize = 25

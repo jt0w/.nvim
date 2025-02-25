@@ -12,14 +12,7 @@
   nvim = let
     config = let
       extraPackags = with pkgs; [
-        cargo
-        ccls
-        opam
-        ocaml
-        ocamlPackages.ocamlformat
-        ocamlPackages.ocaml-lsp
-        go
-        unzip
+        luarocks
       ];
     in
       neovimUtils.makeNeovimConfig {

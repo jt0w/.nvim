@@ -1,6 +1,8 @@
 return {
-    "mini.nvim",
-    after = function()
+    "echasnovski/mini.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
         require("mini.align").setup()
         require("mini.operators").setup()
         require("mini.surround").setup()

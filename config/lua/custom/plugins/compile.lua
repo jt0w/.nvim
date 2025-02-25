@@ -1,17 +1,13 @@
 return {
-    "compile-mode.nvim",
-    lazy = false,
-    before = function()
-        deps.add {
-            source = "ej-shafran/compile-mode.nvim",
-            depends = { "nvim-lua/plenary.nvim" }
-        }
-    end,
+    "ej-shafran/compile-mode.nvim",
+    dependencies = {
+        "nvim-lua/plenary.nvim" 
+    },
     keys = {
         { "<leader>cC", "<cmd>below Compile<cr>", desc = "Compile"},
         { "<leader>cc", "<cmd>below Recompile<cr>", desc = "Recompile"},
     },
-    after = function()
+    config = function()
         vim.g.compile_mode = {}
     end,
 }

@@ -1,16 +1,12 @@
 return {
-    "nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
     lazy = false,
     priority = 1000,
-    before = function()
-        deps.add { source = "nvim-treesitter/nvim-treesitter" }
-    end,
-    after = function()
-        require("nvim-treesitter").setup {
-            ensure_install = { "stable" },
-            auto_install = true,
-        }
-
+    opts = {
+        ensure_install = { "stable" },
+        auto_install = true,
+    },
+    config = function()
         vim.api.nvim_create_autocmd('FileType', {
             pattern = { '<filetype>' },
             callback = function()
