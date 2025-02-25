@@ -7,7 +7,6 @@ return {
         image        = { enabled = true },
         notifier     = { enabled = true },
         scope        = { enabled = true },
-        indent        = { enabled = true },
         statuscolumn = { enabled = true },
         toggle       = { enabled = true },
         scratch      = { enabled = true },
