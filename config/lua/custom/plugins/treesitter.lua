@@ -2,19 +2,32 @@ return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     priority = 1000,
-    opts = {
-        ensure_install = { "stable" },
-        auto_install = true,
-    },
     config = function()
-        vim.api.nvim_create_autocmd('FileType', {
-            pattern = { '<filetype>' },
-            callback = function()
-                vim.treesitter.start()
-                vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            end,
-        })
+        require'nvim-treesitter.configs'.setup {
+            -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+            ensure_installed = { "stable" },
+
+            auto_install = true,
+
+            highlight = {
+                enable = true,
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "gnn", -- set to `false` to disable one of the mappings
+                    node_incremental = "grn",
+                    scope_incremental = "grc",
+                    node_decremental = "grm",
+                },
+            },
+            indent = {
+                enable = true
+            }
+        }
+
+        vim.wo.foldmethod = 'expr'
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
         vim.filetype.add({
             extension = {
