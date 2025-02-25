@@ -41,7 +41,7 @@ o.updatetime = 50
 o.belloff = "all"
 
 o.list = true
-o.lcs = "eol:↲,tab:» ,trail:·"
+o.lcs = "eol:↲,tab:» ,space:·"
 o.conceallevel = 2
 o.foldlevel = 999
 o.guicursor = ""
