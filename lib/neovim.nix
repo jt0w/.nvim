@@ -2,7 +2,7 @@
   wrapNeovimUnstable,
   neovim-unwrapped,
   neovimUtils,
-  buildFHSEnv,
+  buildEnv,
   writeShellScript,
   config_path,
   pkgs,
@@ -35,12 +35,9 @@
   in
     wrapNeovimUnstable neovim-unwrapped config;
 in
-  buildFHSEnv {
+  buildEnv {
     name = "nvim";
-    targetPkgs = pkgs: [
+    paths = [
       nvim
     ];
-    runScript = writeShellScript "run-nvim.sh" ''
-      exec ${nvim}/bin/nvim "$@"
-    '';
   }
