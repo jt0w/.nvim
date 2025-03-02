@@ -1,9 +1,14 @@
 return {
-    "zenbones-theme/zenbones.nvim",
-    dependencies = "rktjmp/lush.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme('zenbones')
+        require("kanagawa").setup {
+            compile = true,
+            background = {
+                dark = "dragon",
+            },
+        }
+        vim.cmd.colorscheme("kanagawa")
     end
 }
