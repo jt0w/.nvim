@@ -12,6 +12,12 @@
   nvim = let
     config = let
       extraPackags = with pkgs; [
+        rust-analyzer-unwrapped
+        zls
+        gopls
+        ccls
+        lua-language-server
+        nil
         luarocks
       ];
     in
