@@ -50,6 +50,5 @@ return {
                 miniclue.gen_clues.z(),
             },
         })
-
     end,
 }
