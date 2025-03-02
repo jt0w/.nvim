@@ -1,12 +1,9 @@
 return {
-    "scottmckendry/cyberdream.nvim",
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        require("cyberdream").setup {
-            variant = "auto",
-            transparent = true,
-        }
-        vim.cmd.colorscheme "cyberdream"
+        vim.cmd.colorscheme('zenbones')
     end
 }
