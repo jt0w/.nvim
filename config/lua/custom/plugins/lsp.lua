@@ -27,7 +27,7 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             callback = function()
                 vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-                vim.keymap.set("n", "<leader><space>", "<C-x><C-o>", { buffer = -1 })
+                vim.keymap.set("i", "<leader><space>", "<C-x><C-o>", { buffer = -1 })
 
                 vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { buffer = 0 })
                 vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { buffer = 0 })
