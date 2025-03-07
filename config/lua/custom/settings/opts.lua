@@ -1,8 +1,8 @@
 local g = vim.g
 local o = vim.opt
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+g.mapleader = " "
+g.maplocalleader = " "
 
 g.netrw_browser_split = 0
 g.netrw_banner = 0
@@ -44,7 +44,6 @@ o.list = true
 o.lcs = "eol:↲,tab:» ,space:·"
 o.conceallevel = 2
 o.foldlevel = 999
-o.guicursor = ""
 
 o.virtualedit = "block"
 o.inccommand = "split"
