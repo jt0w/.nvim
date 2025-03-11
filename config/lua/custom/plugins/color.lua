@@ -1,12 +1,13 @@
 return {
-    "scottmckendry/cyberdream.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        require("cyberdream").setup {
-            variant = "auto",
+        require("kanagawa").setup {
+            theme = "dragon",
+            compile = true,
             transparent = true,
         }
-        vim.cmd.colorscheme "cyberdream"
+        vim.cmd.colorscheme "kanagawa"
     end
 }
