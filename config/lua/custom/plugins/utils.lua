@@ -1,5 +1,6 @@
 return {
     "secretval/Utils.nvim",
+    lazy = false,
     opts = {
         auto_inserts = {
             {
