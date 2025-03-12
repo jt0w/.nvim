@@ -11,6 +11,10 @@ return {
                     "\\#define %:t:r_h",
                     "\\#endif // %:t:r_h",
                 }
+            },
+            {
+                filetype = "norg",
+                cmd = "Neorg inject-metadata",
             }
         },
     },
