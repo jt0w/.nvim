@@ -6,6 +6,7 @@ return {
         require("mini.align").setup()
         require("mini.operators").setup()
         require("mini.surround").setup()
+        require("mini.sessions").setup()
         local miniclue = require('mini.clue')
         miniclue.setup({
             triggers = {
