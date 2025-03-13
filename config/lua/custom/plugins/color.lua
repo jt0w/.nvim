@@ -1,8 +1,8 @@
 return {
-    "savq/melange-nvim",
+    "EdenEast/nightfox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme "melange"
+        vim.cmd.colorscheme "carbonfox"
     end
 }
