@@ -1,8 +1,14 @@
 return {
-    "ayu-theme/ayu-vim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme "ayu"
+        require("kanagawa").setup({
+            theme = "dragon",
+            background = {
+                dark = "dragon",
+            },
+        })
+        vim.cmd.colorscheme "kanagawa"
     end
 }
