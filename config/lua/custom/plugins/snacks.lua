@@ -17,10 +17,6 @@ return {
         words        = { enabled = true },
         picker       = { enabled = true },
         input        = { enabled = true },
-        dashboard    = {
-            enabled = true,
-            example = "files",
-        },
     },
     keys = {
         { "<C-,>",      function() Snacks.terminal() end,   desc = "Open Terminal",               mode = { "n", "t" } },
