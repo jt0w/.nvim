@@ -1,13 +1,8 @@
 return {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "ayu-theme/ayu-vim",
     lazy = false,
     priority = 1000,
     config = function()
-        require("catppuccin").setup {
-            flavour = "mocha",
-            transparent_background = true,
-        }
-        vim.cmd.colorscheme "catppuccin"
+        vim.cmd.colorscheme "ayu"
     end
 }
