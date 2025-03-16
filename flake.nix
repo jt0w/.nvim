@@ -26,7 +26,7 @@
         };
 
         packages = {
-          default = pkgs.callPackage ./lib/neovim.nix {inherit config_path; };
+          default = pkgs.callPackage ./lib/neovim.nix {inherit config_path;};
         };
       };
     };
