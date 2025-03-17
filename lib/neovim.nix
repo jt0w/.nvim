@@ -2,8 +2,6 @@
   wrapNeovimUnstable,
   neovim-unwrapped,
   neovimUtils,
-  buildEnv,
-  writeShellScript,
   config_path,
   pkgs,
   lib,
@@ -15,11 +13,7 @@
       zls
       gopls
       ccls
-      lua-language-server
       nil
-      luarocks
-      pandoc
-      texliveFull
     ];
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
@@ -27,7 +21,22 @@
       telescope-nvim
       snacks-nvim
       neorg
+      render-markdown-nvim
+      neocord
+      lualine-nvim
       vim-fugitive
+      direnv-vim
+      nvim-ufo
+      # lsp
+      nvim-lspconfig
+      # cmp
+      nvim-cmp
+      cmp-path
+      cmp-buffer
+      cmp-nvim-lsp
+      cmp-nvim-lsp-signature-help
+      luasnip
+      friendly-snippets
 
       tokyonight-nvim
     ];
