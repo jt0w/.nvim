@@ -14,9 +14,6 @@ local on_attach = function(client, bufnr)
         Snacks.toggle.inlay_hints():map("<leader>th")
     end
 
-    vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
-    vim.keymap.set("i", "<C-space>", "<C-x><C-o>", { buffer = bufnr})
-
     vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { buffer = bufnr })
     vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { buffer = bufnr })
     vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, { buffer = bufnr })
