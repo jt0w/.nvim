@@ -9,7 +9,7 @@
   }: let
   config = let
     extraPackages = with pkgs; [
-      rust-analyzer-unwrapped
+      rust-analyzer
       zls
       gopls
       ccls
