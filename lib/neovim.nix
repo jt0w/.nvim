@@ -6,7 +6,7 @@
   pkgs,
   lib,
   ...
-}: let
+  }: let
   config = let
     extraPackages = with pkgs; [
       rust-analyzer-unwrapped
@@ -29,6 +29,7 @@
       nvim-ufo
       # lsp
       nvim-lspconfig
+      fidget-nvim
       # cmp
       nvim-cmp
       cmp-path
@@ -37,6 +38,9 @@
       cmp-nvim-lsp-signature-help
       luasnip
       friendly-snippets
+
+      # EVIL AI
+      (pkgs.callPackage ./avante.nix {})
 
       tokyonight-nvim
     ];
@@ -53,13 +57,13 @@
         source ${config_path + "/init.lua"}
       '';
     }
-    // {
-      wrapperArgs = [
-        "--prefix"
-        "PATH"
-        ":"
-        "${lib.makeBinPath extraPackages}"
-      ];
-    };
-in
-  wrapNeovimUnstable neovim-unwrapped config
+  // {
+    wrapperArgs = [
+      "--prefix"
+      "PATH"
+      ":"
+      "${lib.makeBinPath extraPackages}"
+    ];
+  };
+  in
+    wrapNeovimUnstable neovim-unwrapped config

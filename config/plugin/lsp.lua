@@ -35,4 +35,4 @@ for name, config in pairs(servers) do
     lspconfig[name].setup(config)
 end
 
-
+require("fidget").setup {}
