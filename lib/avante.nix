@@ -13,11 +13,12 @@ pkgs,
 let
   version = "0.0.23";
   src = fetchFromGitHub {
-    owner = "kyrisu";
+    owner = "yetone";
     repo = "avante.nvim";
-    rev = "469a60491c99883dd527b46ee0293cd21813dc01";
-    hash = "sha256-qtYWkN75VM4B3+h0nmL0bHISSDvmZSlmPSwWmuMm4bU=";
+    rev = "078649971254baf086a71de75b85ffac672864f2";
+    hash = "sha256-i0GxoHf9PJBfJwBoDG8OI1TNlOJGmhc8dAvt4gSdAyA=";
   };
+
   avante-nvim-lib = rustPlatform.buildRustPackage {
     pname = "avante-nvim-lib";
     inherit version src;
