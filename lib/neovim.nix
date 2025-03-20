@@ -6,7 +6,7 @@
   pkgs,
   lib,
   ...
-  }: let
+}: let
   config = let
     extraPackages = with pkgs; [
       rust-analyzer
@@ -23,7 +23,6 @@
       neorg
       render-markdown-nvim
       neocord
-      lualine-nvim
       vim-fugitive
       direnv-vim
       nvim-ufo
@@ -57,13 +56,13 @@
         source ${config_path + "/init.lua"}
       '';
     }
-  // {
-    wrapperArgs = [
-      "--prefix"
-      "PATH"
-      ":"
-      "${lib.makeBinPath extraPackages}"
-    ];
-  };
-  in
-    wrapNeovimUnstable neovim-unwrapped config
+    // {
+      wrapperArgs = [
+        "--prefix"
+        "PATH"
+        ":"
+        "${lib.makeBinPath extraPackages}"
+      ];
+    };
+in
+  wrapNeovimUnstable neovim-unwrapped config
