@@ -43,6 +43,7 @@ o.belloff = "all"
 o.list = true
 o.lcs = "eol:↲,tab:» ,space:·"
 o.conceallevel = 2
+o.concealcursor = "n"
 o.foldlevel = 999
 o.laststatus = 3
 
