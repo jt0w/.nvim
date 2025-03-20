@@ -42,7 +42,7 @@
       # EVIL AI
       (pkgs.callPackage ./avante.nix {})
 
-      tokyonight-nvim
+      catppuccin-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
