@@ -22,7 +22,7 @@
       snacks-nvim
       neorg
       render-markdown-nvim
-      cord-nvim
+      neocord
       vim-fugitive
       direnv-vim
       nvim-ufo
