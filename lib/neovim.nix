@@ -24,6 +24,7 @@
       render-markdown-nvim
       neocord
       vim-fugitive
+      gitsigns-nvim
       direnv-vim
       nvim-ufo
       # lsp
@@ -37,9 +38,6 @@
       cmp-nvim-lsp-signature-help
       luasnip
       friendly-snippets
-
-      # EVIL AI
-      (pkgs.callPackage ./avante.nix {})
 
       catppuccin-nvim
     ];
