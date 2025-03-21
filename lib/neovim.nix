@@ -29,6 +29,8 @@
       direnv-vim
       nvim-ufo
 
+      yazi-nvim
+
       # lsp
       nvim-lspconfig
       fidget-nvim

@@ -20,4 +20,4 @@ s("n", "<C-shift-k>", "<cmd>cprev<cr>")
 s("v", "K", ":m '<-2<CR>gv=gv")
 s("v", "J", ":m '>+1<CR>gv=gv")
 
-s("n", "<leader>e", "<cmd>Ex<cr>")
+s("t", "<esc>", "<C-\\><C-n>")
