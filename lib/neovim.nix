@@ -25,17 +25,14 @@
       neocord
       vim-fugitive
       gitsigns-nvim
+
       direnv-vim
       nvim-ufo
+
       # lsp
       nvim-lspconfig
       fidget-nvim
-      # cmp
-      nvim-cmp
-      cmp-path
-      cmp-buffer
-      cmp-nvim-lsp
-      cmp-nvim-lsp-signature-help
+
       luasnip
       friendly-snippets
 
