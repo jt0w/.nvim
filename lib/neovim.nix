@@ -10,9 +10,10 @@
   config = let
     extraPackages = with pkgs; [
       rust-analyzer
+      ccls
+      gdb
       zls
       gopls
-      ccls
       nil
     ];
     plugins = with pkgs.vimPlugins; [
@@ -25,6 +26,7 @@
       neocord
       vim-fugitive
       gitsigns-nvim
+      mini-nvim
 
       direnv-vim
       nvim-ufo
@@ -34,6 +36,12 @@
       # lsp
       nvim-lspconfig
       fidget-nvim
+
+      # debugging / dap
+      nvim-dap
+      nvim-dap-ui
+      nvim-nio
+      nvim-dap-virtual-text
 
       luasnip
       friendly-snippets
