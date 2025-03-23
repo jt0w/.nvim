@@ -23,6 +23,7 @@
       snacks-nvim
       neorg
       render-markdown-nvim
+      vim-table-mode
       neocord
       vim-fugitive
       gitsigns-nvim
