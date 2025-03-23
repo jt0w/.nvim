@@ -32,7 +32,7 @@
       direnv-vim
       nvim-ufo
 
-      yazi-nvim
+      oil-nvim
 
       # lsp
       nvim-lspconfig
