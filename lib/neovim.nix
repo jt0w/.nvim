@@ -25,9 +25,11 @@
       render-markdown-nvim
       vim-table-mode
       neocord
+      mini-nvim
+
       vim-fugitive
       gitsigns-nvim
-      mini-nvim
+      octo-nvim
 
       direnv-vim
       nvim-ufo
