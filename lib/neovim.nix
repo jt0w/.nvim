@@ -47,6 +47,8 @@
       nvim-nio
       nvim-dap-virtual-text
 
+      blink-cmp
+
       luasnip
       friendly-snippets
 

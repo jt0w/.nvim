@@ -38,6 +38,7 @@ for name, config in pairs(servers) do
         config = {}
     end
     config.on_attach = on_attach
+    config.capabilities = require('blink.cmp').get_lsp_capabilities()
     lspconfig[name].setup(config)
 end
 
