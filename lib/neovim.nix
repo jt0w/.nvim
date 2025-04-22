@@ -15,6 +15,7 @@
       zls
       gopls
       nil
+      jdt-language-server
     ];
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
