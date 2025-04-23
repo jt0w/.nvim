@@ -6,7 +6,6 @@ local servers = {
     gopls = true,
     ccls = true,
     nil_ls = true,
-    jdtls = true,
 }
 
 local on_attach = function(client, bufnr) 
@@ -32,12 +31,16 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 end
 
-
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        on_attach(assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client"), args.bufnr)
+    end,
+})
 for name, config in pairs(servers) do
     if config == true then
         config = {}
     end
-    config.on_attach = on_attach
+    -- config.on_attach = on_attach
     config.capabilities = require('blink.cmp').get_lsp_capabilities()
     lspconfig[name].setup(config)
 end
