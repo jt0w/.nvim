@@ -6,7 +6,6 @@ local servers = {
     gopls = true,
     ccls = true,
     nil_ls = true,
-    jdtls = true,
 }
 
 local on_attach = function(client, bufnr) 
