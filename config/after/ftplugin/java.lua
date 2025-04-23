@@ -11,7 +11,6 @@ local config = {
             downloadSources = true,
         },
         signatureHelp = { enabled = true },
-        contentProvider = { preferred = 'fernflower' },  -- Use fernflower to decompile library code
     },
     cmd = {
         'jdtls',
@@ -20,6 +19,7 @@ local config = {
         '-data' .. workspace_folder,
     },
 }
+
 jdtls.start_or_attach(config)
 
 vim.keymap.set("n","<A-o>", function() jdtls.organize_imports() end)

@@ -16,7 +16,6 @@
       gopls
       nil
       jdt-language-server
-      fernflower
     ];
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
@@ -41,6 +40,7 @@
       # lsp
       nvim-lspconfig
       fidget-nvim
+      nvim-jdtls
 
       # debugging / dap
       nvim-dap
