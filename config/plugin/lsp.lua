@@ -6,7 +6,6 @@ local servers = {
     gopls = true,
     ccls = true,
     nil_ls = true,
-    jdtls = true,
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -35,8 +34,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
     end,
 })
-
-require("java").setup()
 
 for name, config in pairs(servers) do
     if config == true then
