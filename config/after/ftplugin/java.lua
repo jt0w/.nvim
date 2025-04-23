@@ -1,6 +1,7 @@
 local jdtls = require('jdtls')
+local root_dir = require('jdtls.setup').find_root(root_markers)
+local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 local config = {
-    cmd = {'jdtls'},
     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
     settings = {
         eclipse = {
@@ -10,6 +11,13 @@ local config = {
             downloadSources = true,
         },
         signatureHelp = { enabled = true },
+        contentProvider = { preferred = 'fernflower' },  -- Use fernflower to decompile library code
+    },
+    cmd = {
+        'jdtls',
+        '-Xmx4g',
+        '--add-modules=ALL-SYSTEM',
+        '-data' .. workspace_folder,
     },
 }
 jdtls.start_or_attach(config)
