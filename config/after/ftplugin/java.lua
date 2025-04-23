@@ -1,5 +1,6 @@
 local jdtls = require('jdtls')
 local root_dir = require('jdtls.setup').find_root(root_markers)
+local root_markers = {'gradlew', 'mvnw', '.git'}
 local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 local config = {
     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
