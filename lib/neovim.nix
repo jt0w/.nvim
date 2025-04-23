@@ -40,7 +40,6 @@
       # lsp
       nvim-lspconfig
       fidget-nvim
-      nvim-jdtls
 
       # debugging / dap
       nvim-dap
