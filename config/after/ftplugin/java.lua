@@ -2,6 +2,15 @@ local jdtls = require('jdtls')
 local config = {
     cmd = {'jdtls'},
     root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    settings = {
+        eclipse = {
+            downloadSources = true,
+        },
+        maven = {
+            downloadSources = true,
+        },
+        signatureHelp = { enabled = true },
+    },
 }
 jdtls.start_or_attach(config)
 
