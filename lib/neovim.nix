@@ -35,6 +35,8 @@
       direnv-vim
       nvim-ufo
 
+      oil-nvim
+
       # lsp
       nvim-lspconfig
       fidget-nvim
