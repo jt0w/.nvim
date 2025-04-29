@@ -29,8 +29,6 @@
       mini-nvim
 
       vim-fugitive
-      gitsigns-nvim
-      octo-nvim
 
       direnv-vim
       nvim-ufo
