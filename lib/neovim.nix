@@ -52,6 +52,8 @@
       friendly-snippets
 
       catppuccin-nvim
+
+      rest-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
