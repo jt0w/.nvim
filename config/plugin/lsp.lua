@@ -6,6 +6,7 @@ local servers = {
     gopls = true,
     ccls = true,
     nil_ls = true,
+    tinymist = true,
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {

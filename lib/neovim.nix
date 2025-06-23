@@ -16,6 +16,8 @@
       gopls
       nil
       jdt-language-server
+      typst
+      tinymist
     ];
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
@@ -39,6 +41,7 @@
       nvim-lspconfig
       fidget-nvim
       nvim-jdtls
+      typst-preview-nvim
 
       # debugging / dap
       nvim-dap
