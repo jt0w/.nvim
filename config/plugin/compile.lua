@@ -8,6 +8,7 @@ vim.api.nvim_create_user_command(
     function()
         vim.ui.input({ prompt = "Command: " }, function(input)
             vim.cmd("cgetexpr ('" .. input .. "')");
+            Command = input
             vim.cmd("make")
             vim.cmd("copen")
         end)
