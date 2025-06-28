@@ -1,5 +1,7 @@
 local s = vim.keymap.set
 
+s("n", "<leader>e", "<cmd>Explore<cr>")
+
 s("n", "<esc>", "<cmd>noh<cr>")
 s("n", "<leader>,", "<C-^>")
 
@@ -21,3 +23,4 @@ s("v", "K", ":m '<-2<CR>gv=gv")
 s("v", "J", ":m '>+1<CR>gv=gv")
 
 s("t", "<esc>", "<C-\\><C-n>")
+

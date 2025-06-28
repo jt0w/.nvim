@@ -9,13 +9,6 @@
 }: let
   config = let
     extraPackages = with pkgs; [
-      rust-analyzer
-      ccls
-      gdb
-      zls
-      gopls
-      nil
-      jdt-language-server
       typst
       tinymist
     ];
@@ -35,28 +28,9 @@
       direnv-vim
       nvim-ufo
 
-      oil-nvim
-
-      # lsp
-      nvim-lspconfig
-      fidget-nvim
-      nvim-jdtls
       typst-preview-nvim
 
-      # debugging / dap
-      nvim-dap
-      nvim-dap-ui
-      nvim-nio
-      nvim-dap-virtual-text
-
-      blink-cmp
-
-      luasnip
-      friendly-snippets
-
       catppuccin-nvim
-
-      rest-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
