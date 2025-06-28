@@ -2,7 +2,7 @@ Command = nil
 vim.api.nvim_create_user_command(
     'Compile',
     function()
-        vim.ui.input({ prompt = "Command: " }, function(input)
+        vim.ui.input({ prompt = "Command: ", completion = "shellcmd" }, function(input)
             vim.cmd("cexpr system('" .. input .. "')");
             Command = input
         end)
