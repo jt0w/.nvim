@@ -8,8 +8,8 @@ vim.api.nvim_create_user_command(
     function()
         vim.ui.input({ prompt = "Command: " }, function(input)
             vim.cmd("cgetexpr ('" .. input .. "')");
-            Command = input
-            vim.cmd("copen");
+            vim.cmd("make")
+            vim.cmd("copen")
         end)
     end,
     {nargs = 0}
@@ -19,6 +19,7 @@ vim.api.nvim_create_user_command(
     'Recompile',
     function()
         vim.cmd("cgetexpr ('" .. Command .. "')");
+        vim.cmd("make");
         vim.cmd("copen");
     end,
     {nargs = 0}
