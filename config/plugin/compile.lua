@@ -19,4 +19,4 @@ vim.api.nvim_create_user_command(
 )
 
 vim.keymap.set("n", "<leader>cC", "<cmd>Compile<cr>");
-vim.keymap.set("n", "<leader>cc", "<cmd>make<cr>");
+vim.keymap.set("n", "<leader>cc", "<cmd>Recompile<cr>");
