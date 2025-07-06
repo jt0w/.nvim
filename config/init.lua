@@ -44,5 +44,8 @@ vim.keymap.set("n", "<space>c", function()
   end) 
 end)
 
-
-
+require ("catppuccin").setup {
+    transparent_background = true,
+    show_end_of_buffer = true,
+}
+vim.cmd.colorscheme "catppuccin"
