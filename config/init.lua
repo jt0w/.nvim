@@ -34,7 +34,7 @@ vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 vim.cmd("syntax on | color retrobox")
 
 vim.keymap.set("n", "<space>c", function()
-  vim.ui.inpu ({}, function(c) 
+  vim.ui.input ({}, function(c) 
       if c and c~="" then 
         vim.cmd("noswapfile vnew") 
         vim.bo.buftype = "nofile"
