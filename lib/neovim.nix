@@ -9,6 +9,7 @@
 }: let
   config = let
     plugins = with pkgs.vimPlugins; [
+			undotree
       catppuccin-nvim
     ];
     extraPackages = [];
