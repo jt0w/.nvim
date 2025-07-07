@@ -35,7 +35,21 @@ vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
-vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
+-- On terminal open, map <Esc> to exit terminal mode
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+  end,
+})
+
+-- On FZF filetype detection, unmap <Esc> in terminal mode
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "fzf",
+  callback = function()
+    vim.api.nvim_buf_del_keymap(0, "t", "<Esc>")
+  end,
+})
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
@@ -90,7 +104,7 @@ vim.keymap.set("n", "<leader>f", function(opts)
   end) 
 end)
 
-vim.keymap.set("n", "<leader>s", vim.cmd.FZF)
+vim.keymap.set("n", "<leader><leader>", vim.cmd.FZF)
 
 require ("catppuccin").setup {
   transparent_background = true,
