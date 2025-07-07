@@ -1,5 +1,0 @@
-vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>")
-vim.keymap.set("n", "<leader>gp", "<cmd>Git push<cr>")
-vim.keymap.set("n", "<leader>gP", "<cmd>Git pull<cr>")
-vim.keymap.set("n", "<leader>gaa", "<cmd>Git add .<cr>")
-vim.keymap.set("n", "<leader>gaf", "<cmd>Git add %<cr>")

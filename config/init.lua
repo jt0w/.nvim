@@ -28,6 +28,8 @@ o.termguicolors = true
 
 o.laststatus = 0
 
+o.wildmode = "longest,noselect"
+
 o.clipboard = "unnamedplus"
 vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 
