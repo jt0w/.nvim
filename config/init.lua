@@ -15,7 +15,7 @@ g.c_syntax_for_h = true
 
 o.tabstop = 4
 o.softtabstop = -1
-o.expandtab = true
+o.expandtab = false
 
 o.undofile = true
 
@@ -33,15 +33,61 @@ o.wildmode = "longest,noselect"
 o.clipboard = "unnamedplus"
 vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 
+-- Brilliant keymaps i stole from https://github.com/ThePrimeagen/init.lua
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
+
 vim.cmd("syntax on | color retrobox")
 
-vim.keymap.set("n", "<space>c", function()
+function create_floating_window(f)
+		local buf = vim.api.nvim_create_buf(false, true)
+
+		local width = math.floor(vim.o.columns * 0.8)
+		local height = math.floor(vim.o.lines * 0.8)
+		local col = math.floor((vim.o.columns - width) / 2)
+		local row = math.floor((vim.o.lines - height) / 2)
+
+		local opts = {
+				style = "minimal",
+				relative = "editor",
+				width = width,
+				height = height,
+				row = row,
+				col = col,
+				border = "rounded",  -- other options: "single", "double", "solid", "none"
+		}
+
+		vim.api.nvim_open_win(buf, true, opts)
+		if (f) then
+				f()
+		end
+
+		vim.keymap.set("n", "q", "<cmd>quit<cr>", {buffer =  buf})
+		vim.keymap.set("n", "<esc>", "<cmd>quit<cr>", {buffer =  buf})
+end
+
+vim.keymap.set("n", "<leader>c", function()
   vim.ui.input ({}, function(c) 
       if c and c~="" then 
-        vim.cmd("noswapfile vnew") 
-        vim.bo.buftype = "nofile"
-        vim.bo.bufhidden = "wipe"
-        vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c))
+        create_floating_window(function()
+				vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c))
+		end)
+      end 
+  end) 
+end)
+
+vim.keymap.set("n", "<leader>s", function() create_floating_window() end) 
+vim.keymap.set("n", "<leader>t", function() 
+		create_floating_window(function()
+				vim.cmd("term")
+		end) 
+end) 
+vim.keymap.set("n", "<leader>f", function(opts)
+  vim.ui.input ({}, function(c) 
+      if c and c~="" then
+        vim.bo[].ft = c
       end 
   end) 
 end)
@@ -50,4 +96,5 @@ require ("catppuccin").setup {
     transparent_background = true,
     show_end_of_buffer = true,
 }
+
 vim.cmd.colorscheme "catppuccin"
