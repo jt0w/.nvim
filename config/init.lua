@@ -69,7 +69,7 @@ function create_floating_window(f)
 end
 
 vim.keymap.set("n", "<leader>c", function()
-  vim.ui.input ({}, function(c) 
+  vim.ui.input ({completion="shellcmdline"}, function(c) 
       if c and c~="" then 
         create_floating_window(function()
 				vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.fn.systemlist(c))
@@ -84,10 +84,11 @@ vim.keymap.set("n", "<leader>t", function()
 				vim.cmd("term")
 		end) 
 end) 
+
 vim.keymap.set("n", "<leader>f", function(opts)
-  vim.ui.input ({}, function(c) 
+  vim.ui.input ({completion = "filetype"}, function(c) 
       if c and c~="" then
-        vim.bo[].ft = c
+        vim.bo[vim.api.nvim_get_current_buf()].ft = c
       end 
   end) 
 end)
@@ -97,4 +98,4 @@ require ("catppuccin").setup {
     show_end_of_buffer = true,
 }
 
-vim.cmd.colorscheme "catppuccin"
+ vim.cmd.colorscheme "catppuccin"
