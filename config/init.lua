@@ -51,8 +51,9 @@ vim.api.nvim_create_autocmd("TermOpen", {
 -- On FZF filetype detection, unmap <Esc> in terminal mode
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "fzf",
-  callback = function()
+  callback = function(ev)
     vim.api.nvim_buf_del_keymap(0, "t", "<Esc>")
+    vim.opt_local.winblend = 0
   end,
 })
 
@@ -77,7 +78,7 @@ function create_floating_window(f)
     border = "rounded",  -- other options: "single", "double", "solid", "none"
   }
 
-  vim.api.nvim_open_win(buf, true, opts)
+  local win = vim.api.nvim_open_win(buf, true, opts)
   if (f) then
     f()
   end
