@@ -28,6 +28,7 @@ o.laststatus = 0
 o.wildmode = "longest,noselect"
 o.clipboard = "unnamedplus"
 o.syntax = "on"
+o.winblend = 20
 
 vim.opt.fillchars = {
   eob = ' ',
