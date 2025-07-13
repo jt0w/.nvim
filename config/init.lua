@@ -105,10 +105,3 @@ vim.keymap.set("n", "<leader>f", function(opts)
 end)
 
 vim.keymap.set("n", "<leader><leader>", vim.cmd.FZF)
-
-require ("catppuccin").setup {
-  transparent_background = true,
-  show_end_of_buffer = true,
-}
-
-vim.cmd.colorscheme "catppuccin"
