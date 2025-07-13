@@ -29,6 +29,10 @@ o.wildmode = "longest,noselect"
 o.clipboard = "unnamedplus"
 o.syntax = "on"
 
+vim.opt.fillchars = {
+  eob = ' ',
+}
+
 vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 
 -- Brilliant keymaps i stole from https://github.com/ThePrimeagen/init.lua
