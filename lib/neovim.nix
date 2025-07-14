@@ -15,7 +15,10 @@
       zls
       gopls
       nil
+      typst
+      tinymist
     ];
+
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
@@ -29,12 +32,12 @@
       snacks-nvim
       mini-nvim
       nvim-bqf
-      overseer-nvim
 
       oil-nvim
 
       nvim-lspconfig
       fidget-nvim
+      typst-preview-nvim
 
       luasnip
       friendly-snippets
