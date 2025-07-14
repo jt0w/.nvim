@@ -17,7 +17,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.lsp.inlay_hint.enable(true)
             Snacks.toggle.inlay_hints():map("<leader>th")
         end
+        vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true }, }) 
         Snacks.toggle.diagnostics():map("<leader>td")
+
 
         vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { buffer = bufnr })
         vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, { buffer = bufnr })
@@ -47,4 +49,3 @@ require("fidget").setup {
     },
 }
 
-vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true }, }) 

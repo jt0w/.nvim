@@ -38,9 +38,6 @@ vim.keymap.set("n", "<leader>c", function()
 end)
 
 vim.keymap.set("n", "<leader>s", function() create_floating_window() end) 
-vim.keymap.set("n", "<leader>t", function() 
-  create_floating_window(vim.cmd.term)
-end) 
 
 vim.keymap.set("n", "<leader>af", function(opts)
   vim.ui.input ({completion = "filetype"}, function(c) 

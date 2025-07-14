@@ -21,7 +21,6 @@
       undotree
       tinted-vim
       telescope-nvim
-      neogit
       render-markdown-nvim
       vim-table-mode
       snacks-nvim
@@ -29,6 +28,12 @@
 
       nvim-lspconfig
       fidget-nvim
+
+      # from the GOD himself
+      vim-rsi
+      vim-fugitive
+      vim-endwise
+      vim-vinegar
     ];
     extraRC = lib.optionalString (base16-theme != null) ''
       let tinted_background_transparent=1
