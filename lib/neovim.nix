@@ -25,15 +25,22 @@
       vim-table-mode
       snacks-nvim
       mini-nvim
+      nvim-bqf
+      overseer-nvim
+
+      oil-nvim
 
       nvim-lspconfig
       fidget-nvim
+
+      blink-cmp
+      luasnip
+      friendly-snippets
 
       # from the GOD himself
       vim-rsi
       vim-fugitive
       vim-endwise
-      vim-vinegar
     ];
     extraRC = lib.optionalString (base16-theme != null) ''
       let tinted_background_transparent=1

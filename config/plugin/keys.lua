@@ -18,6 +18,6 @@ s("n", "<c-l>", "<c-w><c-l>")
 s("n", "<c-h>", "<c-w><c-h>")
 
 s("n", "<leader>o", "<cmd>copen<cr>")
-s("n", "<leader>c", "<cmd>cclose<cr>")
+s("n", "<leader>q", "<cmd>cclose<cr>")
 s("n", "<C-shift-j>", "<cmd>cnext<cr>")
 s("n", "<C-shift-k>", "<cmd>cprev<cr>")
