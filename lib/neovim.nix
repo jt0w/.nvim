@@ -36,7 +36,6 @@
       nvim-lspconfig
       fidget-nvim
 
-      blink-cmp
       luasnip
       friendly-snippets
 
