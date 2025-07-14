@@ -1,4 +1,5 @@
 require("mini.align").setup()
+require("mini.splitjoin").setup()
 require("mini.operators").setup()
 require("mini.surround").setup()
 require("mini.sessions").setup()

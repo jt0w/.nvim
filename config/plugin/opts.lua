@@ -7,6 +7,7 @@ g.netrw_winsize = 25
 g.netrw_cursor = false
 g.langmap = "äö"
 vim.keymap.set("n", "<leader>e", "<cmd>Explore<cr>")
+vim.keymap.set("n", "H", "-")
 
 g.c_syntax_for_h = true
 
