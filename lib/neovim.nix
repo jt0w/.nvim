@@ -18,6 +18,9 @@
     ];
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
+      nvim-treesitter-context
+      nvim-treesitter-context
+
       undotree
       tinted-vim
       telescope-nvim
@@ -42,22 +45,18 @@
       vim-fugitive
       vim-endwise
     ];
-    extraRC = lib.optionalString (base16-theme != null) ''
-      let tinted_background_transparent=1
-      color base16-${base16-theme}
-    '';
   in
     neovimUtils.makeNeovimConfig {
       inherit plugins;
       vimAlias = true;
       viAlias = true;
 
-      customRC =
-        ''
-          set runtimepath^=${config_path}
-          set runtimepath^=${config_path}/after
-          source ${config_path + "/init.lua"}
-        '' + extraRC;
+      customRC = ''
+        set runtimepath^=${config_path}
+        set runtimepath^=${config_path}/after
+        source ${config_path + "/init.lua"}
+        let g:color="${base16-theme}"
+      '';
     }
     // {
       wrapperArgs = [
