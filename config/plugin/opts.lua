@@ -20,6 +20,7 @@ o.hlsearch = true
 o.incsearch = true
 o.termguicolors = true
 o.laststatus = 3
+o.cmdheight = 0
 o.wildmode = "longest,noselect"
 o.clipboard = "unnamedplus"
 o.syntax = "on"
