@@ -5,7 +5,7 @@
   config_path,
   pkgs,
   lib,
-  base16-theme ? "everforest-dark-hard",
+  base16-theme ? "horizon-dark",
   ...
 }: let
   config = let
