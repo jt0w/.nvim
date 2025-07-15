@@ -1,4 +1,10 @@
 require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -38,18 +44,6 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = '*',
-  callback = function()
-    local ok, parser = pcall(vim.treesitter.get_parser, 0)
-    if ok and parser then
-      vim.treesitter.start()
-      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
-  end,
-})
 
 require'treesitter-context'.setup{
   enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
