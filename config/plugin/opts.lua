@@ -7,7 +7,6 @@ o.guicursor = ""
 o.nu = true
 o.rnu = true
 o.scrolloff = 15
-o.showmode = false
 o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
