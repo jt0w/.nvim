@@ -2,12 +2,12 @@ g.mapleader = " "
 g.maplocalleader = " "
 
 g.langmap = "äö"
-
 g.c_syntax_for_h = true
-
+o.guicursor = ""
 o.nu = true
 o.rnu = true
 o.scrolloff = 15
+o.showmode = false
 o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
@@ -20,17 +20,18 @@ o.hlsearch = true
 o.incsearch = true
 o.termguicolors = true
 o.laststatus = 3
-o.cmdheight = 0
+o.cmdheight = 1
 o.wildmode = "longest,noselect"
 o.clipboard = "unnamedplus"
 o.syntax = "on"
 
 o.fillchars = {
-  eob = ' ',
+    eob = ' ',
 }
 
 o.lcs = {
-  eol = "↲",
-  tab = "» ",
+    eol = "↲",
+    space = "·",
+    tab = "» ",
 }
 o.list = true
