@@ -1,2 +1,4 @@
-g.tinted_background_transparent = 1
-vim.cmd.colorscheme("base16-" .. g.color)
+require("cyberdream").setup {
+  transparent = true,
+}
+vim.cmd.colorscheme("cyberdream")

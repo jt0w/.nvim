@@ -5,7 +5,6 @@
   config_path,
   pkgs,
   lib,
-  base16-theme ? "horizon-dark",
   ...
 }: let
   config = let
@@ -15,6 +14,7 @@
       zls
       gopls
       nil
+      jdt-language-server
       typst
       tinymist
     ];
@@ -38,6 +38,7 @@
       nvim-lspconfig
       fidget-nvim
       typst-preview-nvim
+      nvim-jdtls
 
       luasnip
       friendly-snippets
@@ -46,6 +47,8 @@
       vim-rsi
       vim-fugitive
       vim-endwise
+
+      cyberdream-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
@@ -56,8 +59,8 @@
       customRC = ''
         set runtimepath^=${config_path}
         set runtimepath^=${config_path}/after
+        let g:jdt="${lib.getExe pkgs.jdt-language-server}"
         source ${config_path + "/init.lua"}
-        let g:color="${base16-theme}"
       '';
     }
     // {
