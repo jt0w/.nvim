@@ -15,6 +15,7 @@
       gopls
       nil
       jdt-language-server
+      lua-language-server
       typst
       tinymist
     ];
