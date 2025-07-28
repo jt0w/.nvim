@@ -1,4 +1,4 @@
-require("cyberdream").setup {
-  transparent = true,
+require("catppuccin").setup {
+  flavour = "mocha"
 }
-vim.cmd.colorscheme("cyberdream")
+vim.cmd.colorscheme("catppuccin")

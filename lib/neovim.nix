@@ -47,7 +47,7 @@
       vim-fugitive
       vim-endwise
 
-      cyberdream-nvim
+      catppuccin-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
