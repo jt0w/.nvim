@@ -23,6 +23,8 @@ o.cmdheight = 1
 o.wildmode = "longest,noselect"
 o.clipboard = "unnamedplus"
 o.syntax = "on"
+o.winborder = "rounded"
+o.completeopt = { "menu", "menuone", "noselect" }
 
 o.fillchars = {
     eob = ' ',

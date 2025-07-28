@@ -26,8 +26,6 @@
       nvim-treesitter-context
 
       undotree
-      tinted-vim
-      telescope-nvim
       render-markdown-nvim
       vim-table-mode
       snacks-nvim

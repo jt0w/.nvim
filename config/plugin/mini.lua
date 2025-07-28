@@ -3,6 +3,14 @@ require("mini.splitjoin").setup()
 require("mini.operators").setup()
 require("mini.surround").setup()
 require("mini.sessions").setup()
+
+require("mini.pick").setup()
+local builtin = require("mini.pick").builtin
+vim.keymap.set('n', '<leader>f', builtin.files, { desc = 'find files' })
+vim.keymap.set('n', '<leader>s', builtin.grep_live, { desc = 'grep_live' })
+vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find buffers' })
+vim.keymap.set('n', '<leader>h', builtin.help, { desc = 'search help tags' })
+
 local miniclue = require('mini.clue')
 miniclue.setup({
     triggers = {
