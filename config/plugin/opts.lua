@@ -36,3 +36,5 @@ o.lcs = {
     tab = "» ",
 }
 o.list = true
+
+vim.fn.matchadd('errorMsg', [[\s\+$]])
