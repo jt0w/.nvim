@@ -47,7 +47,7 @@
       vim-fugitive
       vim-endwise
 
-      catppuccin-nvim
+      kanagawa-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
