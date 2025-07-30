@@ -13,4 +13,4 @@ require("oil").setup({
     },
 })
 
-vim.keymap.set("n", "<leader>e", require("oil").toggle_float);
+vim.keymap.set("n", "<leader>e", require("oil").toggle_float)
