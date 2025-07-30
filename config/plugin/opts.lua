@@ -25,6 +25,8 @@ o.clipboard = "unnamedplus"
 o.syntax = "on"
 o.winborder = "rounded"
 o.completeopt = { "menu", "menuone", "noselect" }
+o.virtualedit = "block"
+o.inccommand = "split"
 
 o.fillchars = {
     eob = ' ',
