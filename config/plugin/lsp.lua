@@ -19,6 +19,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       Snacks.toggle.inlay_hints():map("<leader>th")
     end
 
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, args.buf)
+    end
+
     vim.diagnostic.config({ virtual_text = {current_line = true}})
     Snacks.toggle.diagnostics():map("<leader>td")
 
