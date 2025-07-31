@@ -27,6 +27,7 @@ o.winborder = "rounded"
 o.completeopt = { "menu", "menuone", "noselect" }
 o.virtualedit = "block"
 o.inccommand = "split"
+o.signcolumn = "yes"
 
 o.fillchars = {
     eob = ' ',

@@ -2,7 +2,6 @@ Snacks = require("snacks")
 Snacks.setup {
     picker = {},
     notifier = {},
-    statuscolumn = {},
     terminal =  {},
     gitbrowse = {},
     scratch = {},
