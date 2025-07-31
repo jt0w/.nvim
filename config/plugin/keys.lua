@@ -12,12 +12,7 @@ s("v", "J", ":m '>+1<CR>gv=gv")
 
 s("n", "<leader>u", vim.cmd.UndotreeToggle)
 
-s("n", "<c-j>", "<c-w><c-j>")
-s("n", "<c-k>", "<c-w><c-k>")
-s("n", "<c-l>", "<c-w><c-l>")
-s("n", "<c-h>", "<c-w><c-h>")
-
 s("n", "<leader>o", "<cmd>copen<cr>")
 s("n", "<leader>q", "<cmd>cclose<cr>")
-s("n", "<C-shift-j>", "<cmd>cnext<cr>")
-s("n", "<C-shift-k>", "<cmd>cprev<cr>")
+s("n", "<leader>j", "<cmd>cnext<cr>")
+s("n", "<leader>k", "<cmd>cprev<cr>")
