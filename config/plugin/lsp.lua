@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.completion.enable(true, client.id, args.buf)
     end
 
-    vim.diagnostic.config({ virtual_text = {current_line = true}})
+    vim.diagnostic.config({ virtual_text = { current_line = true } })
     Snacks.toggle.diagnostics():map("<leader>td")
 
     vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, { buffer = bufnr })
@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { buffer = bufnr })
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 
-    vim.keymap.set('n', '<leader>lf', vim.lsp.buf.forma, {buffer = bufnr})
+    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = bufnr })
   end,
 })
 
