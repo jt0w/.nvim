@@ -40,9 +40,10 @@
       luasnip
       friendly-snippets
 
+      neogit
+
       # from the GOD himself
       vim-rsi
-      vim-fugitive
       vim-endwise
       vim-obsession
 

@@ -11,14 +11,6 @@ vim.keymap.set('n', '<leader>s', builtin.grep_live, { desc = 'grep_live' })
 vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find buffers' })
 vim.keymap.set('n', '<leader>h', builtin.help, { desc = 'search help tags' })
 
-local files = require("mini.files")
-files.setup({
-  mappings = {
-    go_in_plus = '<CR>',
-  },
-})
-vim.keymap.set('n', '<leader>e', files.open, { desc = 'search help tags' })
-
 local miniclue = require('mini.clue')
 miniclue.setup({
   triggers = {
