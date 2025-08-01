@@ -44,6 +44,7 @@
       vim-rsi
       vim-fugitive
       vim-endwise
+      vim-obsession
 
       kanagawa-nvim
     ];
