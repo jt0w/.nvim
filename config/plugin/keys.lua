@@ -3,7 +3,7 @@ local s = vim.keymap.set
 
 s("n", "<esc>", "<cmd>noh<cr>")
 
-s("t", "<esc>",  [[<C-\><C-n>]], {noremap = true, silent = true})
+s("t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 s("n", "<leader>,", "<C-^>")
 
 -- Brilliant keymaps i stole from https://github.com/ThePrimeagen/init.lua
@@ -16,3 +16,8 @@ s("n", "<leader>o", "<cmd>copen<cr>")
 s("n", "<leader>q", "<cmd>cclose<cr>")
 s("n", "<leader>j", "<cmd>cnext<cr>")
 s("n", "<leader>k", "<cmd>cprev<cr>")
+
+s("n", "<c-j>", "<c-w><c-j>")
+s("n", "<c-k>", "<c-w><c-k>")
+s("n", "<c-l>", "<c-w><c-l>")
+s("n", "<c-h>", "<c-w><c-h>")

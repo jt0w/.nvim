@@ -30,20 +30,10 @@ end
 
 vim.snippet.stop = ls.unlink_current
 
-
-----
 ---- my own
 ls.config.set_config {
   history = true,
   override_builtin = true,
 }
-
-vim.keymap.set({ "i", "s" }, "<c-k>", function()
-  return vim.snippet.active { direction = 1 } and vim.snippet.jump(1)
-end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<c-j>", function()
-  return vim.snippet.active { direction = -1 } and vim.snippet.jump(-1)
-end, { silent = true })
 
 require("luasnip.loaders.from_vscode").lazy_load()

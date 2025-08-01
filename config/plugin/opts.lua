@@ -11,7 +11,7 @@ o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
 o.expandtab = true
-o.smartindent = false
+o.smartindent = true
 o.undofile = true
 o.splitright = true
 o.splitbelow = true
@@ -30,14 +30,33 @@ o.inccommand = "split"
 o.signcolumn = "yes"
 
 o.fillchars = {
-    eob = ' ',
+  eob = ' ',
 }
 
 o.lcs = {
-    eol = "↲",
-    space = "·",
-    tab = "» ",
+  eol = "↲",
+  space = "·",
+  tab = "» ",
 }
 o.list = true
 
-vim.fn.matchadd('errorMsg', [[\s\+$]])
+vim.api.nvim_create_augroup('TrailingWhitespace', { clear = true })
+
+-- Clear highlighting when entering insert mode
+vim.api.nvim_create_autocmd('InsertEnter', {
+  group = 'TrailingWhitespace',
+  pattern = '*',
+  callback = function()
+    vim.fn.clearmatches()
+  end
+})
+
+-- Add highlighting when leaving insert mode or entering a buffer
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufWinEnter' }, {
+  group = 'TrailingWhitespace',
+  pattern = '*',
+  callback = function()
+    vim.fn.clearmatches()
+    vim.fn.matchadd('ErrorMsg', [[\s\+$]])
+  end
+})

@@ -23,14 +23,12 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       nvim-treesitter-context
-      nvim-treesitter-context
 
       undotree
       render-markdown-nvim
       vim-table-mode
       snacks-nvim
       mini-nvim
-      nvim-bqf
 
       oil-nvim
 
