@@ -1,7 +1,7 @@
 local ng = require('neogit')
 
 ng.setup({
-  kind = "floating",
+  kind = "replace",
 })
 
 vim.keymap.set("n", "<leader>gs", ng.open)
