@@ -18,6 +18,7 @@
       lua-language-server
       typst
       tinymist
+      python3Packages.python-lsp-server
     ];
 
     plugins = with pkgs.vimPlugins; [

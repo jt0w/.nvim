@@ -8,6 +8,7 @@ local servers = {
   nil_ls = true,
   lua_ls = true,
   tinymist = true,
+  pylsp = true,
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
