@@ -4,6 +4,7 @@ g.maplocalleader = " "
 g.langmap = "äö"
 g.c_syntax_for_h = true
 o.guicursor = ""
+o.cursorline = true
 o.nu = true
 o.rnu = true
 o.scrolloff = 15
