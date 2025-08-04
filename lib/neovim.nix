@@ -48,7 +48,7 @@
       vim-endwise
       vim-obsession
 
-      kanagawa-nvim
+      catppuccin-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
