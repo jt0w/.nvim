@@ -28,7 +28,6 @@
       undotree
       render-markdown-nvim
       vim-table-mode
-      snacks-nvim
       mini-nvim
 
       oil-nvim
@@ -39,9 +38,6 @@
       nvim-jdtls
 
       luasnip
-      friendly-snippets
-
-      neogit
 
       # from the GOD himself
       vim-rsi
@@ -60,6 +56,7 @@
         set runtimepath^=${config_path}
         set runtimepath^=${config_path}/after
         let g:jdt="${lib.getExe pkgs.jdt-language-server}"
+        let g:snippets ="${config_path}/snippets"
         source ${config_path + "/init.lua"}
       '';
     }
