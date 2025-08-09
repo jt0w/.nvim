@@ -67,7 +67,12 @@ vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find buffers' })
 vim.keymap.set('n', '<leader>h', builtin.help, { desc = 'search help tags' })
 
 vim.lsp.enable({ "rust_analyzer", "zls", "gopls", "ccls", "nil_ls", "lua_ls", "tinymist", "pylsp" })
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(_)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
+    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
+  end
+})
 
 require('nvim-treesitter.configs').setup({
   highlight = {
