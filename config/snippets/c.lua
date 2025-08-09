@@ -8,9 +8,9 @@ return {
       return 0;
     }
     ]],
-    {
-      i(1),
-    })
+      {
+        i(1),
+      })
   ),
   s({ trig = "once" },
     fmta([[
@@ -19,11 +19,11 @@ return {
     <>
     #endif // endif <>_H
     ]],
-    {
-      i(1),
-      rep(1),
-      i(2),
-      rep(1),
-    })
+      {
+        i(1),
+        rep(1),
+        i(2),
+        rep(1),
+      })
   ),
 }

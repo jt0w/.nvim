@@ -18,7 +18,6 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
-vim.opt.syntax = "on"
 vim.opt.winborder = "rounded"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.virtualedit = "block"
@@ -26,13 +25,13 @@ vim.opt.inccommand = "split"
 vim.opt.signcolumn = "yes"
 
 vim.opt.fillchars = {
-    eob = ' ',
+  eob = ' ',
 }
 
 vim.opt.lcs = {
-    eol = "↲",
-    space = "·",
-    tab = "» ",
+  eol = "↲",
+  space = "·",
+  tab = "» ",
 }
 vim.opt.list = true
 
@@ -71,28 +70,31 @@ vim.lsp.enable({ "rust_analyzer", "zls", "gopls", "ccls", "nil_ls", "lua_ls", "t
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
 require('nvim-treesitter.configs').setup({
-    highlight = {
-        enable = true,
-    },
+  highlight = {
+    enable = true,
+  },
 })
 
 require("oil").setup({
-    columns = {
-        "permissions",
-        "size",
-        "mtime",
-        "icon",
-    },
-    skip_confirm_for_simple_edits = true,
-    prompt_save_on_select_new_entry = false,
-    watch_for_changes = true,
-    view_options = {
-        show_hidden = true,
-    },
+  columns = {
+    "permissions",
+    "size",
+    "mtime",
+    "icon",
+  },
+  skip_confirm_for_simple_edits = true,
+  prompt_save_on_select_new_entry = false,
+  watch_for_changes = true,
+  view_options = {
+    show_hidden = true,
+  },
 })
 vim.keymap.set("n", "<leader>e", require("oil").open)
 
-require("luasnip").setup({ enable_autosnippets = true })
+require("luasnip").setup({
+  enable_autosnippets = true,
+  updateevents = "TextChanged,TextChangedI"
+})
 require("luasnip.loaders.from_lua").load({ paths = { vim.g.snippets } })
 local ls = require "luasnip"
 
