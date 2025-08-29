@@ -1,44 +1,49 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+g = vim.g
+o = vim.opt
 
-vim.g.c_syntax_for_h = true
-vim.opt.guicursor = ""
-vim.opt.nu = true
-vim.opt.rnu = true
-vim.opt.scrolloff = 15
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
-vim.opt.undofile = true
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.termguicolors = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.winborder = "rounded"
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.virtualedit = "block"
-vim.opt.inccommand = "split"
-vim.opt.signcolumn = "yes"
+g.mapleader = " "
+g.maplocalleader = " "
 
-vim.opt.fillchars = {
-  eob = ' ',
+g.netrw_browser_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
+g.netrw_cursor = false
+
+g.c_syntax_for_h = true
+o.guicursor = ""
+o.nu = true
+o.rnu = true
+o.scrolloff = 15
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
+o.smartindent = true
+o.undofile = true
+o.splitright = true
+o.splitbelow = true
+o.hlsearch = true
+o.incsearch = true
+o.termguicolors = true
+o.clipboard = "unnamedplus"
+o.winborder = "rounded"
+o.completeopt = { "menu", "menuone", "noselect" }
+o.virtualedit = "block"
+o.inccommand = "split"
+o.signcolumn = "yes"
+
+o.fillchars = {
+    eob = ' ',
 }
 
-vim.opt.lcs = {
-  eol = "↲",
-  space = "·",
-  tab = "» ",
+o.lcs = {
+    eol = "↲",
+    space = "·",
+    tab = "» ",
 }
-vim.opt.list = true
+o.list = true
 
 vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
-
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>,", "<C-^>")
 
 -- Brilliant keymaps i stole from https://github.com/ThePrimeagen/init.lua
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -56,64 +61,24 @@ vim.keymap.set("n", "<c-k>", "<c-w><c-k>")
 vim.keymap.set("n", "<c-l>", "<c-w><c-l>")
 vim.keymap.set("n", "<c-h>", "<c-w><c-h>")
 
-require("mini.align").setup()
-require("mini.splitjoin").setup()
+vim.keymap.set("n", "<leader>gs", "<cmd>Git<cr>")
 
-require("mini.pick").setup()
-local builtin = require("mini.pick").builtin
-vim.keymap.set('n', '<leader>f', builtin.files, { desc = 'find files' })
-vim.keymap.set('n', '<leader>s', builtin.grep_live, { desc = 'grep_live' })
-vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find buffers' })
-vim.keymap.set('n', '<leader>h', builtin.help, { desc = 'search help tags' })
+vim.keymap.set("n", "<leader>C", function()
+    vim.ui.input({prompt = "Command: "}, function(input)
+        o.makeprg = input
+        vim.cmd.make()
+    end)
+end)
 
-vim.lsp.enable({ "rust_analyzer", "zls", "gopls", "ccls", "nil_ls", "lua_ls", "tinymist", "pylsp" })
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { buffer = 0 })
-
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = 0 })
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
-    vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
-
-    vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { buffer = 0 })
-    vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = 0 })
-    vim.keymap.set("n", "<space>wd", vim.lsp.buf.document_symbol, { buffer = 0 })
-  end
-})
+vim.keymap.set("n", "<leader>c", vim.cmd.make)
 
 require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-  },
+    highlight = {
+        enable = true,
+    },
 })
 
-require("oil").setup({
-  columns = {
-    "permissions",
-    "size",
-    "mtime",
-    "icon",
-  },
-  skip_confirm_for_simple_edits = true,
-  prompt_save_on_select_new_entry = false,
-  watch_for_changes = true,
-  view_options = {
-    show_hidden = true,
-  },
-})
-vim.keymap.set("n", "<leader>e", require("oil").open)
-
-require("luasnip").setup({
-  enable_autosnippets = true,
-  updateevents = "TextChanged,TextChangedI"
-})
-require("luasnip.loaders.from_lua").load({ paths = { vim.g.snippets } })
-local ls = require "luasnip"
-
-vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump() end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silent = true })
+vim.keymap.set("n", "<leader>e", "<cmd>Explore<cr>");
 
 require("catppuccin").setup { transparent_background = true }
 vim.cmd.colorscheme("catppuccin")

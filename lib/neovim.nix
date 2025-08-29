@@ -9,40 +9,21 @@
 }: let
   config = let
     extraPackages = with pkgs; [
-      rust-analyzer
-      ccls
-      zls
-      gopls
-      nil
-      jdt-language-server
-      lua-language-server
       typst
       tinymist
-      python3Packages.python-lsp-server
     ];
 
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
-      nvim-treesitter-context
 
       undotree
       render-markdown-nvim
       vim-table-mode
-      mini-nvim
 
-      oil-nvim
-
-      nvim-lspconfig
-      fidget-nvim
       typst-preview-nvim
-      nvim-jdtls
 
-      luasnip
-
-      # from the GOD himself
-      vim-rsi
-      vim-endwise
       vim-obsession
+      vim-fugitive
 
       catppuccin-nvim
     ];
