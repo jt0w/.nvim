@@ -9,6 +9,15 @@
 }: let
   config = let
     extraPackages = with pkgs; [
+      rust-analyzer
+      ccls
+      zls
+      gopls
+      nil
+      jdt-language-server
+      lua-language-server
+      python3Packages.python-lsp-server
+
       typst
       tinymist
     ];
@@ -20,10 +29,20 @@
       render-markdown-nvim
       vim-table-mode
 
-      typst-preview-nvim
 
       vim-obsession
       vim-fugitive
+      vim-rsi
+
+      telescope-nvim
+      actions-preview-nvim
+      oil-nvim
+      typst-preview-nvim
+
+      luasnip
+
+      nvim-lspconfig
+      nvim-jdtls
 
       catppuccin-nvim
     ];
