@@ -148,7 +148,7 @@ vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silen
 
 vim.lsp.enable({
     "rust_analyzer", "ccls", "zls", "gopls",
-    "nil", "lua_ls", "pyls"
+    "nil", "lua_ls", "pyls", "typst"
 })
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
