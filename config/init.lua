@@ -112,8 +112,8 @@ map("n", "<leader>si", builtin.grep_string)
 map("n", "<leader>sh", builtin.help_tags)
 map("n", "<leader>sm", builtin.man_pages)
 
-map("n", "<leader>gd", builtin.lsp_definitions)
-map("n", "<leader>gr", builtin.lsp_references)
+map("n", "gd", builtin.lsp_definitions)
+map("n", "gr", builtin.lsp_references)
 
 require("actions-preview").setup({
   backend = { "telescope" },
