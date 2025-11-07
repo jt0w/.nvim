@@ -1,72 +1,72 @@
 {
   wrapNeovimUnstable,
-  neovim-unwrapped,
-  neovimUtils,
-  config_path,
-  pkgs,
-  lib,
-  ...
+    neovim-unwrapped,
+    neovimUtils,
+    config_path,
+    pkgs,
+    lib,
+    ...
 }: let
-  config = let
-    extraPackages = with pkgs; [
-      rust-analyzer
-      ccls
-      zls
-      gopls
-      nil
-      jdt-language-server
-      lua-language-server
-      python3Packages.python-lsp-server
+config = let
+extraPackages = with pkgs; [
+  rust-analyzer
+  ccls
+  zls
+  gopls
+  nil
+  jdt-language-server
+  lua-language-server
+  python3Packages.python-lsp-server
 
-      typst
-      tinymist
-    ];
+  typst
+  tinymist
+];
 
-    plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
+plugins = with pkgs.vimPlugins; [
+  nvim-treesitter.withAllGrammars
 
-      undotree
-      render-markdown-nvim
-      vim-table-mode
+  undotree
+  render-markdown-nvim
+  vim-table-mode
 
 
-      vim-obsession
-      vim-fugitive
-      vim-rsi
+  vim-obsession
+  vim-fugitive
+  vim-rsi
 
-      telescope-nvim
-      actions-preview-nvim
-      oil-nvim
-      typst-preview-nvim
+  telescope-nvim
+  actions-preview-nvim
+  oil-nvim
+  typst-preview-nvim
 
-      luasnip
+  luasnip
 
-      nvim-lspconfig
-      nvim-jdtls
+  nvim-lspconfig
+  nvim-jdtls
 
-      catppuccin-nvim
-    ];
+  gruber-darker-nvim
+  ];
   in
-    neovimUtils.makeNeovimConfig {
-      inherit plugins;
-      vimAlias = true;
-      viAlias = true;
+  neovimUtils.makeNeovimConfig {
+    inherit plugins;
+    vimAlias = true;
+    viAlias = true;
 
-      customRC = ''
-        set runtimepath^=${config_path}
-        set runtimepath^=${config_path}/after
-        let g:jdt="${lib.getExe pkgs.jdt-language-server}"
-        let g:snippets ="${config_path}/snippets"
-        source ${config_path + "/init.lua"}
-      '';
-    }
-    // {
-      wrapperArgs = [
-        "--prefix"
-        "PATH"
-        ":"
-        "${lib.makeBinPath extraPackages}"
-      ];
-    };
+    customRC = ''
+      set runtimepath^=${config_path}
+    set runtimepath^=${config_path}/after
+      let g:jdt="${lib.getExe pkgs.jdt-language-server}"
+      let g:snippets ="${config_path}/snippets"
+      source ${config_path + "/init.lua"}
+    '';
+  }
+// {
+wrapperArgs = [
+  "--prefix"
+  "PATH"
+  ":"
+  "${lib.makeBinPath extraPackages}"
+];
+};
 in
-  wrapNeovimUnstable neovim-unwrapped config
+wrapNeovimUnstable neovim-unwrapped config

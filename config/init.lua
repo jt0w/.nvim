@@ -160,5 +160,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-require("catppuccin").setup { transparent_background = true }
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("gruber-darker")
