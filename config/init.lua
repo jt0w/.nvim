@@ -12,7 +12,6 @@ g.c_syntax_for_h = true
 
 o.nu = true
 o.rnu = true
-o.guicursor = ""
 o.scrolloff = 15
 o.tabstop = 4
 o.softtabstop = 4
@@ -160,4 +159,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.cmd.colorscheme("gruber-darker")
+require("gruvbox").setup({
+  transparent_mode = true,
+})
+vim.cmd.colorscheme("gruvbox")

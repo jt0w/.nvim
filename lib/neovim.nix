@@ -44,7 +44,7 @@ plugins = with pkgs.vimPlugins; [
   nvim-lspconfig
   nvim-jdtls
 
-  gruber-darker-nvim
+  gruvbox-nvim
   ];
   in
   neovimUtils.makeNeovimConfig {
