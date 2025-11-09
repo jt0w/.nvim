@@ -27,7 +27,7 @@ o.termguicolors = true
 o.signcolumn = "yes"
 o.clipboard = "unnamedplus"
 o.winborder = "rounded"
-o.completeopt = { "menuone","noselect","popup"}
+o.completeopt = { "menuone", "noselect", "popup" }
 o.virtualedit = "block"
 o.inccommand = "split"
 o.path = "**"
@@ -63,11 +63,12 @@ map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
 
-
 map("n", "<leader>gs", "<cmd>Git<cr>")
+--map({"n", "v", "x" }, "<leader>n", ":norm")
+--map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
 
 map("n", "<leader>C", function()
-    vim.ui.input({prompt = "Command: "}, function(input)
+    vim.ui.input({ prompt = "Command: " }, function(input)
         o.makeprg = input
         vim.cmd.make()
     end)
@@ -104,9 +105,9 @@ tele.setup({
     }
 })
 map("n", "<leader>f", builtin.find_files)
-map("n", "<leader>g", builtin.live_grep)
 map("n", "<leader>b", builtin.buffers)
 
+map("n", "<leader>sg", builtin.live_grep)
 map("n", "<leader>si", builtin.grep_string)
 map("n", "<leader>sh", builtin.help_tags)
 map("n", "<leader>sm", builtin.man_pages)
@@ -115,7 +116,7 @@ map("n", "gd", builtin.lsp_definitions)
 map("n", "gr", builtin.lsp_references)
 
 require("actions-preview").setup({
-  backend = { "telescope" },
+    backend = { "telescope" },
 })
 map("n", "<leader>ca", require("actions-preview").code_actions)
 
@@ -156,10 +157,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         if client:supports_method('textDocument/completion') then
             vim.lsp.completion.enable(true, client.id, args.buf)
         end
+        map({ "n", "v", "x" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format current buffer" })
     end,
 })
 
 require("gruvbox").setup({
-  transparent_mode = true,
+    transparent_mode = true,
 })
 vim.cmd.colorscheme("gruvbox")
