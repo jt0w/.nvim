@@ -29,7 +29,6 @@
       render-markdown-nvim
       vim-table-mode
       marks-nvim
-      vim-tpipeline
 
       vim-obsession
       vim-fugitive

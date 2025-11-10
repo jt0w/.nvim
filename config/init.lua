@@ -52,9 +52,6 @@ require "marks".setup {
   mappings = {}
 }
 
-vim.api.nvim_set_hl(0, "MarkSignHl", { bg = "none" })
-vim.api.nvim_set_hl(0, "MarkSignNumHl", { bg = "none" })
-
 local map = vim.keymap.set
 
 map("n", "<esc>", "<cmd>noh<cr>")
@@ -177,3 +174,7 @@ require("gruvbox").setup({
   transparent_mode = true,
 })
 vim.cmd.colorscheme("gruvbox")
+
+vim.api.nvim_set_hl(0, "MarkSignHl", { bg = "none" })
+vim.api.nvim_set_hl(0, "MarkSignNumHl", { bg = "none" })
+
