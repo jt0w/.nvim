@@ -51,9 +51,7 @@ require "marks".setup {
   excluded_buftypes = {},
   mappings = {}
 }
-vim.cmd [[
-  set stl=%!tpipeline#stl#line()
-]]
+
 vim.api.nvim_set_hl(0, "MarkSignHl", { bg = "none" })
 vim.api.nvim_set_hl(0, "MarkSignNumHl", { bg = "none" })
 
