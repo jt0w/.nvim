@@ -33,15 +33,27 @@ o.inccommand = "split"
 o.path = "**"
 
 o.fillchars = {
-    eob = ' ',
+  eob = ' ',
 }
 
 o.lcs = {
-    eol = "↲",
-    space = "·",
-    tab = "» ",
+  eol = "↲",
+  space = "·",
+  tab = "» ",
 }
 o.list = true
+
+require "marks".setup {
+  builtin_marks = { "<", ">", "^" },
+  refresh_interval = 250,
+  sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+  excluded_filetypes = {},
+  excluded_buftypes = {},
+  mappings = {}
+}
+
+vim.api.nvim_set_hl(0, "MarkSignHl", { bg = "none" })
+vim.api.nvim_set_hl(0, "MarkSignNumHl", { bg = "none" })
 
 local map = vim.keymap.set
 
@@ -68,41 +80,41 @@ map("n", "<leader>gs", "<cmd>Git<cr>")
 --map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
 
 map("n", "<leader>C", function()
-    vim.ui.input({ prompt = "Command: " }, function(input)
-        o.makeprg = input
-        vim.cmd.make()
-    end)
+  vim.ui.input({ prompt = "Command: " }, function(input)
+    o.makeprg = input
+    vim.cmd.make()
+  end)
 end)
 
 map("n", "<leader>c", vim.cmd.make)
 
 require('nvim-treesitter.configs').setup({
-    highlight = {
-        enable = true,
-    },
+  highlight = {
+    enable = true,
+  },
 })
 
 local tele = require("telescope")
 local builtin = require("telescope.builtin")
 tele.setup({
-    defaults = {
-        borderchars = {
-            "─", -- top
-            "│", -- right
-            "─", -- bottom
-            "│", -- left
-            "┌", -- top-left
-            "┐", -- top-right
-            "┘", -- bottom-right
-            "└", -- bottom-left
-        },
-        layout_config = {
-            height = 100,
-            width = 400,
-            prompt_position = "top",
-            preview_cutoff = 40,
-        }
+  defaults = {
+    borderchars = {
+      "─", -- top
+      "│", -- right
+      "─", -- bottom
+      "│", -- left
+      "┌", -- top-left
+      "┐", -- top-right
+      "┘", -- bottom-right
+      "└", -- bottom-left
+    },
+    layout_config = {
+      height = 100,
+      width = 400,
+      prompt_position = "top",
+      preview_cutoff = 40,
     }
+  }
 })
 map("n", "<leader>f", builtin.find_files)
 map("n", "<leader>b", builtin.buffers)
@@ -116,29 +128,29 @@ map("n", "gd", builtin.lsp_definitions)
 map("n", "gr", builtin.lsp_references)
 
 require("actions-preview").setup({
-    backend = { "telescope" },
+  backend = { "telescope" },
 })
 map("n", "<leader>ca", require("actions-preview").code_actions)
 
 require("oil").setup({
-    columns = {
-        "permissions",
-        "size",
-        "mtime",
-        "icon",
-    },
-    skip_confirm_for_simple_edits = true,
-    prompt_save_on_select_new_entry = false,
-    watch_for_changes = true,
-    view_options = {
-        show_hidden = true,
-    },
+  columns = {
+    "permissions",
+    "size",
+    "mtime",
+    "icon",
+  },
+  skip_confirm_for_simple_edits = true,
+  prompt_save_on_select_new_entry = false,
+  watch_for_changes = true,
+  view_options = {
+    show_hidden = true,
+  },
 })
 vim.keymap.set("n", "<leader>e", require("oil").open)
 
 require("luasnip").setup({
-    enable_autosnippets = true,
-    updateevents = "TextChanged,TextChangedI"
+  enable_autosnippets = true,
+  updateevents = "TextChanged,TextChangedI"
 })
 require("luasnip.loaders.from_lua").load({ paths = { vim.g.snippets } })
 local ls = require "luasnip"
@@ -147,21 +159,21 @@ vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump() end,
 vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silent = true })
 
 vim.lsp.enable({
-    "rust_analyzer", "ccls", "zls", "gopls",
-    "nil_ls", "lua_ls", "pylsp", "tinymist"
+  "rust_analyzer", "ccls", "zls", "gopls",
+  "nil_ls", "lua_ls", "pylsp", "tinymist"
 })
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('my.lsp', {}),
-    callback = function(args)
-        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, args.buf)
-        end
-        map({ "n", "v", "x" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format current buffer" })
-    end,
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  callback = function(args)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, args.buf)
+    end
+    map({ "n", "v", "x" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format current buffer" })
+  end,
 })
 
 require("gruvbox").setup({
-    transparent_mode = true,
+  transparent_mode = true,
 })
 vim.cmd.colorscheme("gruvbox")
