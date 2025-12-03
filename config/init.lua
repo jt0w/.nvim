@@ -13,6 +13,7 @@ g.c_syntax_for_h = true
 o.nu = true
 o.rnu = true
 o.scrolloff = 15
+o.guicursor = ""
 o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
