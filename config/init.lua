@@ -175,7 +175,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require("gruvbox").setup({
-  transparent_mode = true,
+require("catppuccin").setup({
+  color_overrides = {
+    mocha = {
+      base = "#000000",
+      mantle = "#000000",
+      crust = "#000000",
+    },
+  },
 })
-vim.cmd.colorscheme("gruvbox")
+
+vim.cmd.colorscheme("catppuccin")

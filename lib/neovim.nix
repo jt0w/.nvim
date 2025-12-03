@@ -44,7 +44,7 @@
       nvim-lspconfig
       nvim-jdtls
 
-      gruvbox-nvim
+      catppuccin-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {
