@@ -44,7 +44,8 @@
       nvim-lspconfig
       nvim-jdtls
 
-      catppuccin-nvim
+      lush-nvim
+      zenbones-nvim
     ];
   in
     neovimUtils.makeNeovimConfig {

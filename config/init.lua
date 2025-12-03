@@ -79,8 +79,6 @@ map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
 
 map("n", "<leader>gs", "<cmd>Git<cr>")
---map({"n", "v", "x" }, "<leader>n", ":norm")
---map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
 
 map("n", "<leader>C", function()
   vim.ui.input({ prompt = "Command: " }, function(input)
@@ -176,14 +174,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require("catppuccin").setup({
-  color_overrides = {
-    mocha = {
-      base = "#000000",
-      mantle = "#000000",
-      crust = "#000000",
-    },
-  },
-})
-
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("zenbones")
