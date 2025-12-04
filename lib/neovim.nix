@@ -35,6 +35,7 @@
       vim-rsi
 
       telescope-nvim
+      mini-nvim
       actions-preview-nvim
       oil-nvim
       typst-preview-nvim
