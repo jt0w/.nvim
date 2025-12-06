@@ -57,6 +57,7 @@ vim.schedule(function()
     vim.api.nvim_set_hl(0, "MarkSignHl", { bg = "none" })
     vim.api.nvim_set_hl(0, "MarkSignNumHl", { bg = "none" })
     vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
 end)
 
 local map = vim.keymap.set
