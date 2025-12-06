@@ -80,6 +80,9 @@ map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
 
+map("n", "<leader>S", "#<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
+map("n", "<leader>s", "<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
+
 map("n", "<leader>gs", "<cmd>Git<cr>")
 
 map("n", "<leader>C", function()
@@ -125,11 +128,6 @@ tele.setup({
 
 map("n", "<leader>f", builtin.find_files)
 map("n", "<leader>b", builtin.buffers)
-
-map("n", "<leader>sg", builtin.live_grep)
-map("n", "<leader>si", builtin.grep_string)
-map("n", "<leader>sh", builtin.help_tags)
-map("n", "<leader>sm", builtin.man_pages)
 
 map("n", "gd", builtin.lsp_definitions)
 map("n", "gr", builtin.lsp_references)
