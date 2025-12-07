@@ -161,7 +161,7 @@ require("luasnip").setup({
 require("luasnip.loaders.from_lua").load({ paths = { vim.g.snippets } })
 local ls = require "luasnip"
 
-vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump() end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump(1) end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silent = true })
 
 vim.lsp.enable({
