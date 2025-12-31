@@ -45,7 +45,7 @@
       nvim-lspconfig
       nvim-jdtls
 
-      catppuccin-nvim
+      tender-vim
     ];
   in
     neovimUtils.makeNeovimConfig {
