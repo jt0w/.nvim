@@ -31,8 +31,9 @@
       marks-nvim
 
       vim-obsession
-      vim-fugitive
       vim-rsi
+
+      neogit
 
       telescope-nvim
       mini-nvim
