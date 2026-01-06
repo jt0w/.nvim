@@ -73,12 +73,23 @@ map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
 
 map("n", "<leader>S", "#<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
-map("n", "<leader>s", "<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
+map("n", "<leader>s", function()
+    vim.ui.input({ prompt = "Grep: " }, function(input)
+        if input == nil then
+            return
+        end
+        vim.cmd.grep(vim.fn.shellescape(input))
+        vim.cmd.copen()
+    end)
+end)
 
 map("n", "<leader>gs", "<cmd>Git<cr>")
 
 map("n", "<leader>C", function()
-    vim.ui.input({ prompt = "Command: " }, function(input)
+    vim.ui.input({ prompt = "Command: ", completion = "shellcmdline" }, function(input)
+        if input == nil then
+            return
+        end
         o.makeprg = input
         vim.cmd.make()
     end)
