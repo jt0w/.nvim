@@ -150,6 +150,7 @@ require("luasnip").setup({
     enable_autosnippets = true,
     updateevents = "TextChanged,TextChangedI"
 })
+
 require("luasnip.loaders.from_lua").load({ paths = { vim.g.snippets } })
 local ls = require "luasnip"
 
