@@ -78,7 +78,7 @@ map("n", "<leader>s", function()
         if input == nil then
             return
         end
-        vim.cmd.grep(vim.fn.shellescape(input))
+        vim.cmd.grep({ args = { vim.fn.shellescape(input) } })
         vim.cmd.copen()
     end)
 end)
