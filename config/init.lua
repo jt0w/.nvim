@@ -102,6 +102,7 @@ map("n", "<leader>cc", vim.cmd.make)
 
 require("mini.align").setup()
 require("mini.splitjoin").setup()
+require("mini.surround").setup()
 
 require('nvim-treesitter.configs').setup({
   highlight = {
