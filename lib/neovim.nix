@@ -26,7 +26,6 @@
       nvim-treesitter.withAllGrammars
 
       undotree
-      render-markdown-nvim
       vim-table-mode
       marks-nvim
 
