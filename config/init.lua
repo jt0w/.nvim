@@ -108,11 +108,6 @@ require("mini.align").setup()
 require("mini.splitjoin").setup()
 require("mini.surround").setup()
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype>' },
-  callback = function() vim.treesitter.start() end,
-})
-
 local tele = require("telescope")
 local builtin = require("telescope.builtin")
 tele.setup({
