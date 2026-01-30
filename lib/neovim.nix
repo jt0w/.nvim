@@ -9,15 +9,6 @@
 }: let
   config = let
     extraPackages = with pkgs; [
-      rust-analyzer
-      llvmPackages.clang-unwrapped
-      zls
-      gopls
-      nil
-      jdt-language-server
-      lua-language-server
-      python3Packages.python-lsp-server
-
       typst
       tinymist
     ];
@@ -42,9 +33,6 @@
 
       luasnip
 
-      nvim-lspconfig
-      nvim-jdtls
-
       tender-vim
     ];
   in
@@ -56,7 +44,6 @@
       customRC = ''
           set runtimepath^=${config_path}
         set runtimepath^=${config_path}/after
-          let g:jdt="${lib.getExe pkgs.jdt-language-server}"
           let g:snippets ="${config_path}/snippets"
           source ${config_path + "/init.lua"}
       '';

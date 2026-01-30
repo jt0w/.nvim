@@ -20,7 +20,7 @@ o.expandtab = true
 o.smartindent = true
 o.undofile = true
 o.splitright = true
-o.splitbelow = true
+o.splitbelow = false
 o.hlsearch = true
 o.incsearch = true
 o.termguicolors = true
@@ -71,6 +71,9 @@ map("n", "<c-j>", "<c-w><c-j>")
 map("n", "<c-k>", "<c-w><c-k>")
 map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
+
+map("n", "<C-t>", "<cmd>split +term<cr>i")
+map("t", "<esc>", [[<C-\><C-n>]])
 
 map("n", "<leader>S", "#<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
 map("n", "<leader>s", function()
@@ -135,9 +138,6 @@ tele.setup({
 map("n", "<leader>f", builtin.find_files)
 map("n", "<leader>b", builtin.buffers)
 
-map("n", "gd", builtin.lsp_definitions)
-map("n", "gr", builtin.lsp_references)
-
 require("actions-preview").setup({
   backend = { "telescope" },
 })
@@ -170,20 +170,5 @@ local ls = require "luasnip"
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump(1) end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silent = true })
-
-vim.lsp.enable({
-  "rust_analyzer", "clangd", "zls", "gopls",
-  "nil_ls", "lua_ls", "pylsp", "tinymist"
-})
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('my.lsp', {}),
-  callback = function(args)
-    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf)
-    end
-    map({ "n", "v", "x" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format current buffer" })
-  end,
-})
 
 vim.cmd.colorscheme("tender")
