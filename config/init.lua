@@ -104,10 +104,9 @@ require("mini.align").setup()
 require("mini.splitjoin").setup()
 require("mini.surround").setup()
 
-require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-  },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
 })
 
 local tele = require("telescope")
@@ -173,7 +172,7 @@ vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump(1) end
 vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silent = true })
 
 vim.lsp.enable({
-  "rust_analyzer", "ccls", "zls", "gopls",
+  "rust_analyzer", "clangd", "zls", "gopls",
   "nil_ls", "lua_ls", "pylsp", "tinymist"
 })
 vim.api.nvim_create_autocmd('LspAttach', {

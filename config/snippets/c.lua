@@ -63,6 +63,23 @@ return {
         i(0),
       })
   ),
+  s({ trig = "def" },
+    fmta([[
+    #define <>
+    ]],
+      {
+        i(0),
+      })
+  ),
+
+  s({ trig = "udef" },
+    fmta([[
+    #undef <>
+    ]],
+      {
+        i(0),
+      })
+  ),
   s({ trig = "struct" },
     fmta([[
     typedef struct {

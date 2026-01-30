@@ -10,7 +10,7 @@
   config = let
     extraPackages = with pkgs; [
       rust-analyzer
-      ccls
+      llvmPackages.clang-unwrapped
       zls
       gopls
       nil
