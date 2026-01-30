@@ -73,6 +73,7 @@ map("n", "<c-l>", "<c-w><c-l>")
 map("n", "<c-h>", "<c-w><c-h>")
 
 map("n", "<C-t>", "<cmd>split +term<cr>i")
+map("t", "<C-t>", "<cmd>quit<cr>")
 map("t", "<esc>", [[<C-\><C-n>]])
 
 map("n", "<leader>S", "#<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
