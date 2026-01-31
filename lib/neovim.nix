@@ -11,7 +11,6 @@
     extraPackages = with pkgs; [
       typst
       tinymist
-      elan
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -29,7 +28,6 @@
       actions-preview-nvim
       oil-nvim
       typst-preview-nvim
-      lean-nvim
 
       luasnip
 
