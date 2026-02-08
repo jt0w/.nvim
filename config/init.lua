@@ -18,6 +18,7 @@ o.softtabstop = 4
 o.shiftwidth = 4
 o.expandtab = true
 o.smartindent = true
+o.wrap = false
 o.undofile = true
 o.splitright = true
 o.splitbelow = false
@@ -110,6 +111,7 @@ require("mini.surround").setup()
 
 local tele = require("telescope")
 local builtin = require("telescope.builtin")
+
 tele.setup({
   defaults = {
     borderchars = {
@@ -134,11 +136,10 @@ tele.setup({
 map("n", "<leader>f", builtin.find_files)
 map("n", "<leader>b", builtin.buffers)
 
+
 require("actions-preview").setup({
   backend = { "telescope" },
 })
-
-map("n", "<leader>ca", require("actions-preview").code_actions)
 
 require("oil").setup({
   columns = {
@@ -156,6 +157,21 @@ require("oil").setup({
 })
 vim.keymap.set("n", "<leader>e", require("oil").open)
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = '*',
+  callback = function()
+    local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+    if lang == vim.bo.filetype then
+      return
+    end
+
+    if lang and pcall(vim.treesitter.language.add, lang) then
+      vim.treesitter.start()
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
 require("luasnip").setup({
   enable_autosnippets = true,
   updateevents = "TextChanged,TextChangedI"
@@ -166,5 +182,25 @@ local ls = require "luasnip"
 
 vim.keymap.set({ "i", "s" }, "<c-k>", function() return ls.expand_or_jump(1) end, { silent = true })
 vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silent = true })
+
+vim.lsp.enable({
+  "rust_analyzer", "ccls", "zls", "gopls",
+  "nil_ls", "lua_ls", "pylsp", "tinymist"
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  callback = function(args)
+    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+    if client:supports_method('textDocument/completion') then
+      vim.lsp.completion.enable(true, client.id, args.buf)
+    end
+
+    map({ "n", "v", "x" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format current buffer" })
+    map("n", "gd", builtin.lsp_definitions)
+    map("n", "gr", builtin.lsp_references)
+    map("n", "<leader>ca", require("actions-preview").code_actions)
+  end,
+})
 
 vim.cmd.colorscheme("tender")

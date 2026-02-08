@@ -9,11 +9,21 @@
 }: let
   config = let
     extraPackages = with pkgs; [
+      rust-analyzer
+      ccls
+      zls
+      gopls
+      nil
+      jdt-language-server
+      lua-language-server
+      python3Packages.python-lsp-server
       typst
       tinymist
     ];
 
     plugins = with pkgs.vimPlugins; [
+      nvim-treesitter.withAllGrammars
+
       undotree
       vim-table-mode
       marks-nvim
@@ -30,6 +40,7 @@
       typst-preview-nvim
 
       luasnip
+      nvim-lspconfig
 
       tender-vim
     ];
