@@ -1,7 +1,7 @@
 require("snacks").setup {
-  image = { enabled = true },
-  rename = { enabled = true },
-  scroll = { enabled = true },
+  image = { },
+  rename = { },
+  statuscolumn = { },
 }
 
 vim.api.nvim_create_autocmd("User", {
