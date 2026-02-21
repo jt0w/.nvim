@@ -9,17 +9,18 @@
 }: let
   config = let
     extraPackages = with pkgs; [
-      rust-analyzer
-      ccls
-      zls
-      gopls
-      nil
-      jdt-language-server
-      lua-language-server
-      python3Packages.python-lsp-server
-      typst
-      tinymist
-    ];
+        rust-analyzer
+        ccls
+        zls
+        gopls
+        nil
+        jdt-language-server
+        lua-language-server
+        python3Packages.python-lsp-server
+        typst
+        tinymist
+        imagemagick
+      ];
 
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
@@ -32,6 +33,7 @@
       vim-rsi
 
       neogit
+      snacks-nvim
 
       telescope-nvim
       mini-nvim
@@ -47,6 +49,7 @@
   in
     neovimUtils.makeNeovimConfig {
       inherit plugins;
+      inherit extraPackages;
       vimAlias = true;
       viAlias = true;
 
