@@ -1,4 +1,4 @@
-jdt-language-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = '~/.jdt-cache/' .. project_name
 local config = {
     cmd = {

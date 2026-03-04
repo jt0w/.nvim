@@ -43,6 +43,7 @@
 
       luasnip
       nvim-lspconfig
+      nvim-jdtls
 
       tender-vim
     ];
