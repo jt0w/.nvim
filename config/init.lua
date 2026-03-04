@@ -77,6 +77,9 @@ map("n", "<C-t>", "<cmd>split +term<cr>i")
 map("t", "<C-t>", "<cmd>quit!<cr>")
 map("t", "<esc>", [[<C-\><C-n>]])
 
+map("n", "H", "^")
+map("n", "L", "$")
+
 map("n", "<leader>S", "#<cmd>vimgrep //j **/*<cr><cmd>copen<cr>")
 map("n", "<leader>s", function()
   vim.ui.input({ prompt = "Grep: " }, function(input)

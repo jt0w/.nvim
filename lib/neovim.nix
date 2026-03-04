@@ -9,18 +9,18 @@
 }: let
   config = let
     extraPackages = with pkgs; [
-        rust-analyzer
-        ccls
-        zls
-        gopls
-        nil
-        jdt-language-server
-        lua-language-server
-        python3Packages.python-lsp-server
-        typst
-        tinymist
-        imagemagick
-      ];
+      rust-analyzer
+      ccls
+      zls
+      gopls
+      nil
+      jdt-language-server
+      lua-language-server
+      python3Packages.python-lsp-server
+      typst
+      tinymist
+      imagemagick
+    ];
 
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
@@ -54,10 +54,11 @@
       viAlias = true;
 
       customRC = ''
-          set runtimepath^=${config_path}
+        set runtimepath^=${config_path}
         set runtimepath^=${config_path}/after
-          let g:snippets ="${config_path}/snippets"
-          source ${config_path + "/init.lua"}
+        let g:snippets ="${config_path}/snippets"
+        let g:jdt="${lib.getExe pkgs.jdt-language-server}"
+        source ${config_path + "/init.lua"}
       '';
     }
     // {
