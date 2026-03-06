@@ -12,7 +12,7 @@ return {
         i(0),
         rep(1),
       })),
-  s({ trig = "tagi" },
+  s({ trig = "itag" },
     fmt([[<{}>{}</{}>{}]],
       {
         i(1),
