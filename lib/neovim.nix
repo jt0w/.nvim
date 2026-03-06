@@ -17,6 +17,7 @@
       jdt-language-server
       lua-language-server
       emmet-language-server
+      vscode-langservers-extracted
       python3Packages.python-lsp-server
       typst
       tinymist

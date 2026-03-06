@@ -200,7 +200,7 @@ vim.keymap.set({ "i", "s" }, "<c-j>", function() return ls.jump(-1) end, { silen
 vim.lsp.enable({
   "rust_analyzer", "ccls", "zls", "gopls",
   "nil_ls", "lua_ls", "pylsp", "tinymist",
-  "emmet_language_server"
+  "emmet_language_server", "cssls"
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
