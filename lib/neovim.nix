@@ -16,6 +16,7 @@
       nil
       jdt-language-server
       lua-language-server
+      emmet-language-server
       python3Packages.python-lsp-server
       typst
       tinymist
