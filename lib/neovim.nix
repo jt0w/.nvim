@@ -48,6 +48,7 @@
       nvim-jdtls
 
       zen-mode-nvim
+      vim-pencil
 
       tender-vim
     ];
