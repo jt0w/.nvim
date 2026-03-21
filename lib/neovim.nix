@@ -47,6 +47,8 @@
       nvim-lspconfig
       nvim-jdtls
 
+      zen-mode-nvim
+
       tender-vim
     ];
   in
