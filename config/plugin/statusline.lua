@@ -17,11 +17,6 @@ function LspStatus()
       str = str .. s.name
     end
   end
-  local status = vim.lsp.status()
-  if status ~= "" then
-    str = str .. ": " .. status
-  end
-
   str = str .. "]"
   return str
 end
