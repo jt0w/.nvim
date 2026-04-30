@@ -32,7 +32,7 @@ local statusline = {
   " %{FugitiveStatusline()}",
   "%r",
   "%=",
-  "[%t]%m",
+  "[%f]%m",
   "%=",
   "%{%v:lua.Diagnostics()%}",
   "%{%v:lua.LspStatus()%}",
