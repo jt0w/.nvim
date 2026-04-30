@@ -1,3 +1,8 @@
+vim.cmd.packadd("nvim.undotree")
+vim.cmd.packadd("nvim.difftool")
+vim.cmd.packadd("nvim.tohtml")
+require('vim._core.ui2').enable()
+
 local g = vim.g
 local o = vim.opt
 
@@ -61,7 +66,7 @@ map("n", "<esc>", "<cmd>noh<cr>")
 map("v", "K", ":m '<-2<CR>gv=gv")
 map("v", "J", ":m '>+1<CR>gv=gv")
 
-map("n", "<leader>u", vim.cmd.UndotreeToggle)
+map("n", "<leader>u", vim.cmd.Undotree)
 
 map("n", "<leader>o", "<cmd>copen<cr>")
 map("n", "<leader>q", "<cmd>cclose<cr>")
@@ -92,9 +97,7 @@ map("n", "<leader>s", function()
 end)
 
 
-map("n", "<leader>gs", function()
-  require("neogit").open({ kind = "floating" });
-end);
+map("n", "<leader>gs", vim.cmd.Git)
 
 map("n", "<leader>C", function()
   vim.ui.input({ prompt = "Command: ", completion = "shellcmdline" }, function(input)

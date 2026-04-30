@@ -27,14 +27,13 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
 
-      undotree
       vim-table-mode
       marks-nvim
 
       vim-obsession
       vim-rsi
 
-      neogit
+      vim-fugitive
       snacks-nvim
 
       telescope-nvim
