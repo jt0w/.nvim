@@ -32,7 +32,7 @@ o.incsearch = true
 o.termguicolors = true
 o.signcolumn = "yes"
 o.clipboard = "unnamedplus"
-o.winborder = "rounded"
+vim.o.winborder="bold"
 o.completeopt = { "menuone", "noselect", "popup" }
 o.virtualedit = "block"
 o.inccommand = "split"
@@ -221,4 +221,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.cmd.colorscheme("tender")
+vim.cmd.colorscheme("retrobox")
