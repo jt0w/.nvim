@@ -26,13 +26,17 @@ function LspStatus()
   return str
 end
 
+function Path()
+  return vim.fn.pathshorten(vim.fn.expand("%:f"))
+end
+
 local statusline = {
   " ",
   "[%{&filetype} %l:%c %p%%]",
   " %{FugitiveStatusline()}",
   "%r",
   "%=",
-  "[%f]%m",
+  "[%{%v:lua.Path()%}]%m",
   "%=",
   "%{%v:lua.Diagnostics()%}",
   "%{%v:lua.LspStatus()%}",
